@@ -3,6 +3,9 @@ using System.Collections;
 
 public class CarController : MonoBehaviour {
 
+    //public float speed = 0.5f;
+
+
 	// Use this for initialization
 	void Start () {
         
@@ -12,13 +15,13 @@ public class CarController : MonoBehaviour {
 	void Update () {
         if (Input.GetKey(KeyCode.W))
         {
-            this.transform.Translate(Vector3.forward);
+            this.rigidbody.AddForce(this.transform.forward);
+            //this.transform.Translate(Vector3.forward);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             this.transform.Rotate(Vector3.down);
-            this.transform.Translate(Vector3.forward);
         }
 
         if (Input.GetKey(KeyCode.S))
@@ -29,7 +32,11 @@ public class CarController : MonoBehaviour {
         if (Input.GetKey(KeyCode.D))
         {
             this.transform.Rotate(Vector3.up);
-            this.transform.Translate(Vector3.forward);
+        }
+
+        if (this.rigidbody.velocity.magnitude > 0 && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
+        {
+            this.rigidbody.AddForce(-this.rigidbody.velocity.x * 0.2f, -this.rigidbody.velocity.y * 0.2f, -this.rigidbody.velocity.z * 0.2f);
         }
 	}
 }
