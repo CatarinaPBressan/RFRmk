@@ -23,57 +23,43 @@ public class VehicleController : MonoBehaviour {
 	void Start () {
         sf = Camera.mainCamera.GetComponent<SmoothFollow>() as SmoothFollow;
         initialCamHeight = sf.height;
+        //initialCamDistance = sf.distance;
+
 	}
+
+    void Update()
+    {
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         CheckMoving();
-        Debug.Log("isMoving =" + isMoving);
+        //Debug.Log("this.rigidbody.velocity.sqrMagnitude =" + this.rigidbody.velocity.sqrMagnitude);
 
         if (Input.GetKey(KeyCode.W))
         {
-            this.rigidbody.AddForce(this.transform.forward * forwardPower);
+            this.rigidbody.AddForce(this.transform.forward * (this.rigidbody.mass * forwardPower));
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            this.rigidbody.AddForce(-this.transform.forward * forwardPower);
-            //this.transform.Translate(Vector3.back);
+            this.rigidbody.AddForce(-this.transform.forward * (this.rigidbody.mass * forwardPower));
         }
         
-        if (this.movementType == MovementType.Wheels)
+        if (Input.GetKey(KeyCode.A) && (isMoving || this.movementType == MovementType.Treads))
         {
-            if (Input.GetKey(KeyCode.A) && isMoving)
-            {
-                this.rigidbody.AddTorque(Vector3.down * (this.rigidbody.angularDrag + turningPower));
-                //this.transform.Rotate(Vector3.down);
-            }
-
-            if (Input.GetKey(KeyCode.D) && isMoving)
-            {
-                this.rigidbody.AddTorque(Vector3.up * (this.rigidbody.angularDrag + turningPower));
-                //this.transform.Rotate(Vector3.up);
-            }
+            this.rigidbody.AddTorque(Vector3.down * (this.rigidbody.angularDrag + turningPower) * this.rigidbody.mass);
         }
 
-        if (this.movementType == MovementType.Treads)
+        if (Input.GetKey(KeyCode.D) && (isMoving || this.movementType == MovementType.Treads))
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                this.rigidbody.AddTorque(Vector3.down * (this.rigidbody.angularDrag + turningPower));
-                //this.transform.Rotate(Vector3.down);
-            }
-
-            if (Input.GetKey(KeyCode.D))
-            {
-                this.rigidbody.AddTorque(Vector3.up * (this.rigidbody.angularDrag + turningPower));
-                //this.transform.Rotate(Vector3.up);
-            }
+            this.rigidbody.AddTorque(Vector3.up * (this.rigidbody.angularDrag + turningPower) * this.rigidbody.mass);
         }
-
+    
         sf.height = this.rigidbody.velocity.magnitude + initialCamHeight;
 
 	}
+
 
     private void CheckMoving()
     {
