@@ -1,29 +1,43 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class VehicleWeapon : MonoBehaviour {
 
 
-    public Transform projectile;
+    public GameObject projectile;
     public float xOffset;
     public float yOffset;
     public float zOffset;
+    public float cooldownTimeMs;
+
+
+    private DateTime lastShotTime;
+    private bool isCooledDown;
 
 	// Use this for initialization
 	void Start () {
-        //Physics.IgnoreCollision(projectile.collider, this.gameObject.collider);
+        isCooledDown = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.Space))
+
+        DateTime timeNow = DateTime.Now;
+        TimeSpan elaspsedTimeSinceLastShot = timeNow - lastShotTime;
+        Debug.Log(elaspsedTimeSinceLastShot.Milliseconds);
+
+        if (elaspsedTimeSinceLastShot >= TimeSpan.FromMilliseconds(cooldownTimeMs))
         {
-            GameObject instance = Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
-            Debug.Log("instance = " + instance.ToString());
-            Debug.Log("instance.collider =" + instance.collider.ToString());
+            isCooledDown = true;
+        }
 
-
-            Physics.IgnoreCollision(instance.collider, this.gameObject.collider);
+        if (Input.GetKey(KeyCode.Space) && isCooledDown)
+        {
+            Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            //GameObject instance = Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
+            isCooledDown = false;
+            lastShotTime = DateTime.Now;
         }
 	}
 }
