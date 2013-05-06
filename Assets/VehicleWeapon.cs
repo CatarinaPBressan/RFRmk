@@ -34,8 +34,12 @@ public class VehicleWeapon : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.Space) && isCooledDown)
         {
-            Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation);
-            //GameObject instance = Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
+            //Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            GameObject instance = Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
+            instance.transform.Translate(new Vector3(xOffset, yOffset, zOffset), this.gameObject.transform);
+
+            Physics.IgnoreCollision(instance.collider, this.gameObject.collider);
+
             isCooledDown = false;
             lastShotTime = DateTime.Now;
         }
