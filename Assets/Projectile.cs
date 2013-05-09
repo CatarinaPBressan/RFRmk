@@ -11,18 +11,16 @@ public class Projectile : MonoBehaviour {
     private DateTime startTime;
 	// Use this for initialization
 	void Start () {
-        startTime = DateTime.Now;
+        Destroy(this.gameObject, lifeMs / 1000); //schedule the object for deletion
 	}
 	
 	// Update is called once per frame
 	void Update () {
         this.transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        DateTime timeNow = DateTime.Now;
-        TimeSpan elaspsedTimeSinceStart = timeNow - startTime;
-        //Debug.Log(elaspsedTimeSinceLastShot.Milliseconds);
-
-        if (elaspsedTimeSinceStart >= TimeSpan.FromMilliseconds(lifeMs))
-        {
-        }
 	}
+
+    void OnCollisionEnter(Collision collisionInfo)
+    {
+        Destroy(this.gameObject);
+    }
 }
