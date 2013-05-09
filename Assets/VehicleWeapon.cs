@@ -25,7 +25,7 @@ public class VehicleWeapon : MonoBehaviour {
 
         DateTime timeNow = DateTime.Now;
         TimeSpan elaspsedTimeSinceLastShot = timeNow - lastShotTime;
-        Debug.Log(elaspsedTimeSinceLastShot.Milliseconds);
+        //Debug.Log(elaspsedTimeSinceLastShot.Milliseconds);
 
         if (elaspsedTimeSinceLastShot >= TimeSpan.FromMilliseconds(cooldownTimeMs))
         {
