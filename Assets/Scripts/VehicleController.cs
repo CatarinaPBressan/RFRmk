@@ -4,11 +4,7 @@ using System.Collections;
 public class VehicleController : MonoBehaviour {
 
 
-    public enum MovementType
-    {
-        Wheels,
-        Treads
-    }
+    
 
     public float forwardPower = 100;
     public float turningPower = 25;
