@@ -3,13 +3,11 @@ using System.Collections;
 
 public class VehicleController : MonoBehaviour {
 
-
-    
-
+    public Team team = Team.Brown;
     public float forwardPower = 100;
     public float turningPower = 25;
     public MovementType movementType = MovementType.Wheels;
-
+    public bool canCarryFlag = false;
 
     private bool isMoving = false;
     private SmoothFollow sf;
