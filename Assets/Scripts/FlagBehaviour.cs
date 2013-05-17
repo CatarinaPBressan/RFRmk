@@ -28,7 +28,7 @@ public class FlagBehaviour : MonoBehaviour {
 
             if (vc != null && vc.canCarryFlag && !vc.team.Equals(this.team))
             {
-                Debug.Log("transform.parent stuff");
+                //Debug.Log("transform.parent stuff");
                 Physics.IgnoreCollision(this.gameObject.collider, collisionInfo.gameObject.collider);
                 this.transform.position = collisionInfo.gameObject.transform.position;
                 this.transform.parent = collisionInfo.gameObject.transform;

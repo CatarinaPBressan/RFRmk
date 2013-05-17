@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour {
         if (hc != null)
         {
             hc.Damage(this.Damage);
-            Debug.Log("damaged!");
+            //Debug.Log("damaged!");
         }
 
         Destroy(this.gameObject);
