@@ -3,22 +3,20 @@ using System.Collections;
 
 public class VehicleController : MonoBehaviour {
 
-    public Team team = Team.Brown;
     public float forwardPower = 100;
     public float turningPower = 25;
     public MovementType movementType = MovementType.Wheels;
     public bool canCarryFlag = false;
+    public float movingThreshold = 4f;
 
-    private bool isMoving = false;
-    private SmoothFollow sf;
-    private float initialCamHeight;
+    private bool _isMoving = false;
+    private SmoothFollow _sf;
+    private float _initialCamHeight;
     
     // Use this for initialization
 	void Start () {
-        sf = Camera.mainCamera.GetComponent<SmoothFollow>() as SmoothFollow;
-        initialCamHeight = sf.height;
-        //initialCamDistance = sf.distance;
-
+        _sf = Camera.mainCamera.GetComponent<SmoothFollow>() as SmoothFollow;
+        _initialCamHeight = _sf.height;
 	}
 
     void Update()
@@ -27,41 +25,42 @@ public class VehicleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        CheckMoving();
-        //Debug.Log("this.rigidbody.velocity.sqrMagnitude =" + this.rigidbody.velocity.sqrMagnitude);
+        _isMoving = CheckMoving();
+        //_sf.height = this.rigidbody.velocity.magnitude + _initialCamHeight;
+	}
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            this.rigidbody.AddForce(this.transform.forward * (this.rigidbody.mass * forwardPower));
-        }
+    private void MoveForward()
+    {
+        this.rigidbody.AddForce(this.transform.forward * (this.rigidbody.mass * forwardPower));
+    }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            this.rigidbody.AddForce(-this.transform.forward * (this.rigidbody.mass * forwardPower));
-        }
-        
-        if (Input.GetKey(KeyCode.A) && (isMoving || this.movementType == MovementType.Treads))
-        {
-            this.rigidbody.AddTorque(Vector3.down * (this.rigidbody.angularDrag + turningPower) * this.rigidbody.mass);
-        }
+    private void MoveBackward()
+    {
+        this.rigidbody.AddForce(-this.transform.forward * (this.rigidbody.mass * forwardPower));
+    }
 
-        if (Input.GetKey(KeyCode.D) && (isMoving || this.movementType == MovementType.Treads))
+    private void TurnRight()
+    {
+        if ((_isMoving || this.movementType == MovementType.Treads))
         {
             this.rigidbody.AddTorque(Vector3.up * (this.rigidbody.angularDrag + turningPower) * this.rigidbody.mass);
         }
-    
-        sf.height = this.rigidbody.velocity.magnitude + initialCamHeight;
+    }
 
-	}
-
-
-    private void CheckMoving()
+    private void TurnLeft()
     {
-        if (this.rigidbody.velocity.sqrMagnitude < 4)
+        if ((_isMoving || this.movementType == MovementType.Treads))
         {
-            isMoving = false;
-            return;
+            this.rigidbody.AddTorque(Vector3.down * (this.rigidbody.angularDrag + turningPower) * this.rigidbody.mass);
         }
-        isMoving = true;
+    }
+
+    private bool CheckMoving()
+    {
+        if (this.rigidbody.velocity.sqrMagnitude < movingThreshold)
+        {
+            return false;
+        }
+        return true;
     }
 }

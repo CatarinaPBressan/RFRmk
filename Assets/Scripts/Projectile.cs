@@ -20,13 +20,11 @@ public class Projectile : MonoBehaviour {
     void OnCollisionEnter(Collision collisionInfo)
     {
         HealthCounter hc = collisionInfo.gameObject.GetComponent<HealthCounter>();
-
         if (hc != null)
         {
             hc.Damage(this.Damage);
-            //Debug.Log("damaged!");
+            Debug.Log("damaged!");
         }
-
         Destroy(this.gameObject);
     }
 

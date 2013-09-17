@@ -2,7 +2,8 @@
 using System.Collections;
 using System;
 
-public class TurretFiringBehaviour : MonoBehaviour {
+public class ShootingBehaviour : MonoBehaviour
+{
 
     public GameObject projectile;
     public float xOffset;
@@ -37,7 +38,6 @@ public class TurretFiringBehaviour : MonoBehaviour {
     {
         if (isCooledDown)
         {
-            //Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation);
             GameObject instance = Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
             instance.transform.Translate(new Vector3(xOffset, yOffset, zOffset), this.gameObject.transform);
             Physics.IgnoreCollision(instance.collider, this.gameObject.collider);
