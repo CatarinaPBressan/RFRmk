@@ -11,22 +11,17 @@ public class VehicleController : MonoBehaviour {
 
     private bool _isMoving = false;
     private SmoothFollow _sf;
-    private float _initialCamHeight;
     
-    // Use this for initialization
 	void Start () {
         _sf = Camera.mainCamera.GetComponent<SmoothFollow>() as SmoothFollow;
-        _initialCamHeight = _sf.height;
 	}
 
     void Update()
     {
     }
 	
-	// Update is called once per frame
 	void FixedUpdate () {
         _isMoving = CheckMoving();
-        //_sf.height = this.rigidbody.velocity.magnitude + _initialCamHeight;
 	}
 
     private void MoveForward()

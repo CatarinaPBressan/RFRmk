@@ -31,4 +31,9 @@ public class FlagTowerBehaviour : MonoBehaviour {
             }
         }
     }
+
+    void OnCollisionEnter(Collision collisionInfo)
+    {
+        Debug.Log(collisionInfo.rigidbody.name);
+    }
 }
