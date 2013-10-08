@@ -8,3 +8,6 @@
 *.sln
 *.suo
 Thumbs.db
+
+[Aa]ssets/Models/Export
+[Aa]ssets/Models/Export.meta
