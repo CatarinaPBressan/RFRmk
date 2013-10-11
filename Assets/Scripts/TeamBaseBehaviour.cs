@@ -5,11 +5,11 @@ public class TeamBaseBehaviour : MonoBehaviour {
 
     public Team team;
 
-    private MatchManager mm;
+    private MatchManager matchManager;
 
     void Start()
     {
-        mm = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
+        matchManager = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
     }
 
     void OnTriggerEnter(Collider collisionInfo)
@@ -18,7 +18,7 @@ public class TeamBaseBehaviour : MonoBehaviour {
         if (fb != null && fb.team != this.team)
         {
             Destroy(fb.gameObject);
-            mm.Score(team);
+            matchManager.Score(team);
         }
     }
 }
