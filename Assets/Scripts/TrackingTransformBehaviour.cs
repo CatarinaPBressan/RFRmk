@@ -3,50 +3,62 @@ using System.Collections;
 
 public class TrackingTransformBehaviour : MonoBehaviour
 {
-    public float trackingRange = 500f;
-    public float firingRange = 300f;
-    public Transform targetTransform;
+    public Team Team;
     
     private bool resetRotation;
-    private ShootingBehaviour tfb;
+    private ShootingBehaviour turretFiringBehaviour;
+    private Transform targetTransform;
 
     void Start()
     {
         resetRotation = true;
-        if (!targetTransform)
-        {
-            return;
-        }
-        tfb = GetComponent<ShootingBehaviour>();
+        turretFiringBehaviour = GetComponent<ShootingBehaviour>();
     }
 
     void Update()
     {
         if (targetTransform)
         {
-            var distSqr = Mathf.Pow(this.transform.position.x - targetTransform.transform.position.x, 2) + Mathf.Pow(this.transform.position.y - targetTransform.transform.position.y, 2);
-            if (distSqr <= trackingRange)
+            this.transform.LookAt(targetTransform);
+            if (turretFiringBehaviour)
             {
-                resetRotation = true;
-                this.transform.LookAt(targetTransform);
-                if (distSqr <= firingRange && tfb)
-                {
-                    tfb.SendMessage("Shoot");
-                }
-            }
-            else
-            {
-                if (resetRotation)
-                {
-                    this.transform.rotation = new Quaternion();
-                    resetRotation = false;
-                }
-                this.transform.Rotate(Vector3.up, Space.Self);
+                turretFiringBehaviour.SendMessage("Shoot");
             }
         }
         else
         {
+            this.transform.Rotate(Vector3.up, Space.Self);
+        }
 
+        if (resetRotation)
+        {
+            this.transform.rotation = new Quaternion();
+            resetRotation = false;
+        }        
+    }
+
+    void OnTriggerEnter(Collider enterer)
+    {
+        var playerController = enterer.gameObject.GetComponent<PlayerController>();
+        if (playerController)
+        {
+            if (!playerController.Team.Equals(this.Team))
+            {
+                targetTransform = enterer.gameObject.transform;
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider exiter)
+    {
+        var playerController = exiter.gameObject.GetComponent<PlayerController>();
+        if (playerController)
+        {
+            if (playerController.gameObject.transform.Equals(targetTransform))
+            {
+                targetTransform = null;
+                resetRotation = true;
+            }
         }
     }
 }
