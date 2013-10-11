@@ -26,7 +26,7 @@ public class FlagBehaviour : MonoBehaviour {
         {
             PlayerController pc = collisionInfo.gameObject.GetComponent<PlayerController>();
 
-            if (pc != null && pc.canCarryFlag && !pc.team.Equals(this.team))
+            if (pc != null && pc.CanCarryFlag && !pc.Team.Equals(this.team))
             {
                 //Debug.Log("transform.parent stuff");
                 Physics.IgnoreCollision(this.gameObject.collider, collisionInfo.gameObject.collider);

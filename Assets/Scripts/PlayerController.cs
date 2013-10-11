@@ -3,61 +3,84 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    public Team team;
+    public Team Team;
 
-    public bool canCarryFlag
+    public bool CanCarryFlag
     {
         get
         {
-            if (_vehicleController != null)
+            if (vehicleController != null)
             {
-                return _vehicleController.canCarryFlag;
+                return vehicleController.canCarryFlag;
             }
             return false;
         }
     }
 
-    private VehicleController _vehicleController;
-    private ShootingBehaviour _shootingBehaviour;
+    private VehicleController vehicleController;
+    private ShootingBehaviour shootingBehaviour;
+    private MatchManager matchStatus;
 
 	// Use this for initialization
 	void Start () {
-        _vehicleController = gameObject.GetComponent<VehicleController>() as VehicleController;
-        _shootingBehaviour = gameObject.GetComponent<ShootingBehaviour>() as ShootingBehaviour;
+        vehicleController = gameObject.GetComponent<VehicleController>() as VehicleController;
+        shootingBehaviour = gameObject.GetComponent<ShootingBehaviour>() as ShootingBehaviour;
+        matchStatus = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-        if (_vehicleController)
+    void Update()
+    {
+        if (!matchStatus.GameEnded)
         {
-            if (Input.GetKey(KeyCode.W))
+            if (vehicleController)
             {
-                _vehicleController.SendMessage("MoveForward");
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                _vehicleController.SendMessage("MoveBackward");
-            }
+                if (Input.GetKey(KeyCode.W))
+                {
+                    vehicleController.SendMessage("MoveForward");
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    vehicleController.SendMessage("MoveBackward");
+                }
 
-            if (Input.GetKey(KeyCode.A))
-            {
-                _vehicleController.SendMessage("TurnLeft");
-            }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    vehicleController.SendMessage("TurnLeft");
+                }
 
-            if (Input.GetKey(KeyCode.D))
+                if (Input.GetKey(KeyCode.D))
+                {
+                    vehicleController.SendMessage("TurnRight");
+                }
+            }
+            if (shootingBehaviour)
             {
-                _vehicleController.SendMessage("TurnRight");
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    shootingBehaviour.SendMessage("Shoot");
+                }
             }
         }
+    }
 
-        if (_shootingBehaviour)
+    void OnGUI()
+    {
+        if (matchStatus.GameEnded)
         {
-            if (Input.GetKey(KeyCode.Space))
+            GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "End Game");
+            string msg;
+            if (Winner)
             {
-                _shootingBehaviour.SendMessage("Shoot");
+                msg = "Winner!";
             }
+            else
+            {
+                msg = "!Loser";
+            }
+            GUI.Label(new Rect(Screen.width / 2, Screen.width / 2, 10000, 20), msg);
         }
-	
-	}
+    }
+
+    public bool Winner { get; set; }
 }

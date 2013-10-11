@@ -5,29 +5,20 @@ public class TeamBaseBehaviour : MonoBehaviour {
 
     public Team team;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private MatchManager mm;
+
+    void Start()
+    {
+        mm = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
+    }
 
     void OnTriggerEnter(Collider collisionInfo)
     {
-        Debug.Log("baseplate trigger");
-
         FlagBehaviour fb = collisionInfo.GetComponent<FlagBehaviour>();
-
-        if (fb != null)
+        if (fb != null && fb.team != this.team)
         {
-            if (fb.team != this.team)
-            {
-                Destroy(fb.gameObject);
-                //
-            }
+            Destroy(fb.gameObject);
+            mm.Score(team);
         }
     }
 }

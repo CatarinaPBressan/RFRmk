@@ -10,10 +10,8 @@ public class VehicleController : MonoBehaviour {
     public float movingThreshold = 4f;
 
     private bool _isMoving = false;
-    private SmoothFollow _sf;
     
 	void Start () {
-        _sf = Camera.mainCamera.GetComponent<SmoothFollow>() as SmoothFollow;
 	}
 
     void Update()
