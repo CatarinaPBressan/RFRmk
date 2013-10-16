@@ -4,14 +4,14 @@ using System.Collections;
 public class TrackingTransformBehaviour : MonoBehaviour
 {
     public Team Team;
-    
-    private bool resetRotation;
+
+    private bool resetRotation = true;
+    private bool targetInRange = false;
     private ShootingBehaviour turretFiringBehaviour;
     private Transform targetTransform;
 
     void Start()
     {
-        resetRotation = true;
         turretFiringBehaviour = GetComponent<ShootingBehaviour>();
     }
 
@@ -20,9 +20,9 @@ public class TrackingTransformBehaviour : MonoBehaviour
         if (targetTransform)
         {
             this.transform.LookAt(targetTransform);
-            if (turretFiringBehaviour)
+            if (turretFiringBehaviour && targetInRange)
             {
-                turretFiringBehaviour.SendMessage("Shoot");
+                turretFiringBehaviour.Shoot();
             }
         }
         else
@@ -37,7 +37,7 @@ public class TrackingTransformBehaviour : MonoBehaviour
         }        
     }
 
-    void OnTriggerEnter(Collider enterer)
+    internal void StartTracking(Collider enterer)
     {
         var playerController = enterer.gameObject.GetComponent<PlayerController>();
         if (playerController)
@@ -49,7 +49,17 @@ public class TrackingTransformBehaviour : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider exiter)
+    internal void StartShooting()
+    {
+        targetInRange = true;
+    }
+
+    internal void StopShooting()
+    {
+        targetInRange = false;
+    }
+
+    internal void StopTracking(Collider exiter)
     {
         var playerController = exiter.gameObject.GetComponent<PlayerController>();
         if (playerController)

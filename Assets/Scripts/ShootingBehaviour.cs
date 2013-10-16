@@ -34,13 +34,16 @@ public class ShootingBehaviour : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         if (isCooledDown)
         {
             GameObject instance = Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
             instance.transform.Translate(new Vector3(xOffset, yOffset, zOffset), this.gameObject.transform);
-            Physics.IgnoreCollision(instance.collider, this.gameObject.collider);
+            if (this.gameObject.collider)
+            {
+                Physics.IgnoreCollision(instance.collider, this.gameObject.collider);
+            }
             isCooledDown = false;
             lastShotTime = DateTime.Now;
         }
