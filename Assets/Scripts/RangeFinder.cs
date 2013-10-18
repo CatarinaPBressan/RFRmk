@@ -6,10 +6,12 @@ public class RangeFinder : MonoBehaviour {
     public RangeType Range;
 
     private TrackingTransformBehaviour tracker;
+    private GateBehaviour gate;
 
     void Start()
     {
         tracker = this.transform.parent.GetComponent<TrackingTransformBehaviour>() as TrackingTransformBehaviour;
+        gate = this.transform.parent.GetComponent<GateBehaviour>() as GateBehaviour;
     }
 
     void OnTriggerEnter(Collider enterer)
@@ -29,6 +31,10 @@ public class RangeFinder : MonoBehaviour {
                     break;
             }
         }
+        if (gate)
+        {
+            gate.Open(enterer);
+        }
     }
 
     void OnTriggerExit(Collider exiter)
@@ -47,6 +53,10 @@ public class RangeFinder : MonoBehaviour {
                     tracker.StartShooting();
                     break;
             }
+        }
+        if (gate)
+        {
+            gate.Close(exiter);
         }
     }
 }
