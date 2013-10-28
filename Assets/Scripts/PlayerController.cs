@@ -20,11 +20,13 @@ public class PlayerController : MonoBehaviour {
     private VehicleController vehicleController;
     private ShootingBehaviour shootingBehaviour;
     private MatchManager matchStatus;
+    private TankTurretBehaviour tankTurret;
 
 	// Use this for initialization
 	void Start () {
         vehicleController = gameObject.GetComponent<VehicleController>() as VehicleController;
-        shootingBehaviour = gameObject.GetComponent<ShootingBehaviour>() as ShootingBehaviour;
+        shootingBehaviour = gameObject.GetComponentInChildren<ShootingBehaviour>() as ShootingBehaviour;
+        tankTurret = gameObject.GetComponentInChildren<TankTurretBehaviour>() as TankTurretBehaviour;
         matchStatus = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
 	}
 	
@@ -59,6 +61,17 @@ public class PlayerController : MonoBehaviour {
                 if (Input.GetKey(KeyCode.Space))
                 {
                     shootingBehaviour.SendMessage("Shoot");
+                }
+            }
+            if (tankTurret)
+            {
+                if (Input.GetKey(KeyCode.Q))
+                {
+                    tankTurret.TurnAntiClockwise();
+                }
+                if (Input.GetKey(KeyCode.E))
+                {
+                    tankTurret.TurnClockwise();
                 }
             }
         }
