@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class ShootingBehaviour : MonoBehaviour
 {
@@ -38,14 +39,42 @@ public class ShootingBehaviour : MonoBehaviour
     {
         if (isCooledDown)
         {
-            GameObject instance = Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
-            instance.transform.Translate(new Vector3(xOffset, yOffset, zOffset), this.gameObject.transform);
-            if (this.gameObject.collider)
+            GameObject bulletInstance = Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
+            bulletInstance.transform.Translate(new Vector3(xOffset, yOffset, zOffset), this.gameObject.transform);
+            Collider[] hirearchyColliders = GetParentsColliders();
+            Debug.Log(hirearchyColliders);
+            foreach (var collider in hirearchyColliders)
             {
-                Physics.IgnoreCollision(instance.collider, this.gameObject.collider);
+                Physics.IgnoreCollision(bulletInstance.collider, collider);
             }
             isCooledDown = false;
             lastShotTime = DateTime.Now;
         }
+    }
+
+    private Collider[] GetParentsColliders()
+    {
+        GameObject currentGO = this.gameObject;
+        List<Collider> cols = new List<Collider>();
+        while(currentGO != null)
+        {
+            Debug.Log("Current GO " + currentGO);
+            if (currentGO.collider != null)
+            {
+                Debug.Log("Current GO collider " + currentGO.collider);
+                cols.Add(currentGO.collider);
+            }
+            try
+            {
+                currentGO = currentGO.transform.parent.gameObject;
+            }
+            catch (NullReferenceException)
+            {
+                currentGO = null;
+            }
+            Debug.Log("Parent GO " + currentGO);
+        }
+        Debug.Log(cols);
+        return cols.ToArray();
     }
 }
