@@ -42,7 +42,6 @@ public class ShootingBehaviour : MonoBehaviour
             GameObject bulletInstance = Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
             bulletInstance.transform.Translate(new Vector3(xOffset, yOffset, zOffset), this.gameObject.transform);
             Collider[] hirearchyColliders = GetParentsColliders();
-            Debug.Log(hirearchyColliders);
             foreach (var collider in hirearchyColliders)
             {
                 Physics.IgnoreCollision(bulletInstance.collider, collider);
@@ -54,27 +53,17 @@ public class ShootingBehaviour : MonoBehaviour
 
     private Collider[] GetParentsColliders()
     {
-        GameObject currentGO = this.gameObject;
+        Transform currentTransform = this.transform;
         List<Collider> cols = new List<Collider>();
-        while(currentGO != null)
+        while (currentTransform != null)
         {
-            Debug.Log("Current GO " + currentGO);
-            if (currentGO.collider != null)
+            Collider currentCollider = currentTransform.gameObject.collider;
+            if (currentCollider != null)
             {
-                Debug.Log("Current GO collider " + currentGO.collider);
-                cols.Add(currentGO.collider);
+                cols.Add(currentCollider);
             }
-            try
-            {
-                currentGO = currentGO.transform.parent.gameObject;
-            }
-            catch (NullReferenceException)
-            {
-                currentGO = null;
-            }
-            Debug.Log("Parent GO " + currentGO);
+            currentTransform = currentTransform.transform.parent;
         }
-        Debug.Log(cols);
         return cols.ToArray();
     }
 }
