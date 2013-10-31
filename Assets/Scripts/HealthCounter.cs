@@ -47,8 +47,12 @@ public class HealthCounter : MonoBehaviour {
 
         if (CurrentHealth <= 0)
         {
-            CurrentHealth = 0;
-            Destroy(this.gameObject); //temp
+            Transform currentTransform = this.transform;
+            while (currentTransform.parent != null)
+            {
+                currentTransform = currentTransform.transform.parent;
+            }
+            Destroy(currentTransform.gameObject);
         }
     }
 }
