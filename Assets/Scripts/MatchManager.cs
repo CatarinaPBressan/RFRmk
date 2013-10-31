@@ -10,17 +10,11 @@ public class MatchManager : MonoBehaviour
     private PlayerController[] playerControllers;
 
 
-	// Use this for initialization
 	void Start () {
         teamScore = new Dictionary<Team, int>();
         teamScore.Add(Team.Brown, 0);
         teamScore.Add(Team.Green, 0);
         playerControllers = Object.FindObjectsOfType(typeof(PlayerController)) as PlayerController[];
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
     internal void Score(Team team)
@@ -47,4 +41,9 @@ public class MatchManager : MonoBehaviour
     }
 
     public bool GameEnded { get; private set; }
+
+    internal void ChangePlayerVehicle(PlayerController playerController, VehicleType vehicleType)
+    {
+        throw new System.NotImplementedException();
+    }
 }

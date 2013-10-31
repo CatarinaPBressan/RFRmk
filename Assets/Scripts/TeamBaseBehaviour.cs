@@ -12,13 +12,30 @@ public class TeamBaseBehaviour : MonoBehaviour {
         matchManager = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
     }
 
-    void OnTriggerEnter(Collider collisionInfo)
+    void OnTriggerEnter(Collider enterer)
     {
-        FlagBehaviour fb = collisionInfo.GetComponent<FlagBehaviour>();
+        FlagBehaviour fb = enterer.GetComponent<FlagBehaviour>();
         if (fb != null && fb.team != this.team)
         {
             Destroy(fb.gameObject);
             matchManager.Score(team);
+        }
+
+        PlayerController pc = enterer.GetComponent<PlayerController>();
+
+        if (pc != null && pc.Team == this.team)
+        {
+            pc.SetBaseControls(true);
+        }
+    }
+
+    void OnTriggerExit(Collider exiter)
+    {
+        PlayerController pc = exiter.GetComponent<PlayerController>();
+
+        if (pc != null && pc.Team == this.team)
+        {
+            pc.SetBaseControls(false);
         }
     }
 }

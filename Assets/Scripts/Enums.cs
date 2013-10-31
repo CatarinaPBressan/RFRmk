@@ -15,3 +15,9 @@ public enum RangeType
     MaxRange,
     MinRange
 }
+
+public enum VehicleType
+{
+    Jeep,
+    Tank
+}

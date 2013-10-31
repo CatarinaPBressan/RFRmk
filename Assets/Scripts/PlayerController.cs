@@ -19,59 +19,82 @@ public class PlayerController : MonoBehaviour {
 
     private VehicleController vehicleController;
     private ShootingBehaviour shootingBehaviour;
-    private MatchManager matchStatus;
+    private MatchManager matchManager;
     private TankTurretBehaviour tankTurret;
 
-	// Use this for initialization
-	void Start () {
+    private bool canControlBase = false;
+    private bool changingVehicle = false;
+
+	void Start () 
+    {
         vehicleController = gameObject.GetComponent<VehicleController>() as VehicleController;
         shootingBehaviour = gameObject.GetComponentInChildren<ShootingBehaviour>() as ShootingBehaviour;
         tankTurret = gameObject.GetComponentInChildren<TankTurretBehaviour>() as TankTurretBehaviour;
-        matchStatus = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
+        matchManager = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
 	}
 	
-	// Update is called once per frame
     void Update()
     {
-        if (!matchStatus.GameEnded)
+        if (!matchManager.GameEnded)
         {
-            if (vehicleController)
+            if (!changingVehicle)
             {
-                if (Input.GetKey(KeyCode.W))
+                if (vehicleController)
                 {
-                    vehicleController.SendMessage("MoveForward");
+                    if (Input.GetKey(KeyCode.W))
+                    {
+                        vehicleController.SendMessage("MoveForward");
+                    }
+                    if (Input.GetKey(KeyCode.S))
+                    {
+                        vehicleController.SendMessage("MoveBackward");
+                    }
+
+                    if (Input.GetKey(KeyCode.A))
+                    {
+                        vehicleController.SendMessage("TurnLeft");
+                    }
+
+                    if (Input.GetKey(KeyCode.D))
+                    {
+                        vehicleController.SendMessage("TurnRight");
+                    }
                 }
-                if (Input.GetKey(KeyCode.S))
+                if (shootingBehaviour)
                 {
-                    vehicleController.SendMessage("MoveBackward");
+                    if (Input.GetKey(KeyCode.Space))
+                    {
+                        shootingBehaviour.SendMessage("Shoot");
+                    }
+                }
+                if (tankTurret)
+                {
+                    if (Input.GetKey(KeyCode.Q))
+                    {
+                        tankTurret.TurnAntiClockwise();
+                    }
+                    if (Input.GetKey(KeyCode.E))
+                    {
+                        tankTurret.TurnClockwise();
+                    }
                 }
 
-                if (Input.GetKey(KeyCode.A))
+                if (canControlBase)
                 {
-                    vehicleController.SendMessage("TurnLeft");
-                }
-
-                if (Input.GetKey(KeyCode.D))
-                {
-                    vehicleController.SendMessage("TurnRight");
+                    if (Input.GetKeyDown(KeyCode.X))
+                    {
+                        changingVehicle = true;
+                    }
                 }
             }
-            if (shootingBehaviour)
+            else
             {
-                if (Input.GetKey(KeyCode.Space))
+                if (canControlBase)
                 {
-                    shootingBehaviour.SendMessage("Shoot");
-                }
-            }
-            if (tankTurret)
-            {
-                if (Input.GetKey(KeyCode.Q))
-                {
-                    tankTurret.TurnAntiClockwise();
-                }
-                if (Input.GetKey(KeyCode.E))
-                {
-                    tankTurret.TurnClockwise();
+                    if (Input.GetKeyDown(KeyCode.X))
+                    {
+                        changingVehicle = false;
+                    }
                 }
             }
         }
@@ -79,7 +102,7 @@ public class PlayerController : MonoBehaviour {
 
     void OnGUI()
     {
-        if (matchStatus.GameEnded)
+        if (matchManager.GameEnded)
         {
             GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "End Game");
             string msg;
@@ -93,7 +116,29 @@ public class PlayerController : MonoBehaviour {
             }
             GUI.Label(new Rect(Screen.width / 2, Screen.width / 2, 10000, 20), msg);
         }
+        else
+        {
+            if (changingVehicle)
+            {
+                GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "Vehicle Selection");
+
+                if (GUI.Button(new Rect(0, 0, Screen.width / 2, Screen.height), "Tank"))
+                {
+                    matchManager.ChangePlayerVehicle(this, VehicleType.Tank);
+                }
+
+                if (GUI.Button(new Rect(Screen.width / 2, 0, Screen.width, Screen.height), "Jeep"))
+                {
+                    matchManager.ChangePlayerVehicle(this, VehicleType.Jeep);
+                }
+            }
+        }
     }
 
     public bool Winner { get; set; }
+
+    internal void SetBaseControls(bool status)
+    {
+        canControlBase = status;
+    }
 }
