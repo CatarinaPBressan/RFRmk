@@ -141,4 +141,9 @@ public class PlayerController : MonoBehaviour {
     {
         canControlBase = status;
     }
+
+    internal Camera GetPlayerCamera()
+    {
+        return Camera.main;
+    }
 }
