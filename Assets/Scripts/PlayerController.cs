@@ -122,12 +122,12 @@ public class PlayerController : MonoBehaviour {
             {
                 GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "Vehicle Selection");
 
-                if (GUI.Button(new Rect(0, 0, Screen.width / 2, Screen.height), "Tank"))
+                if (GUI.Button(new Rect(0, 0, Screen.width / 2, Screen.height), "Tank: " + matchManager.GetRemainingVehicles(Team, VehicleType.Tank).ToString()) && matchManager.GetRemainingVehicles(Team, VehicleType.Jeep) > 0)
                 {
                     matchManager.ChangePlayerVehicle(this, VehicleType.Tank);
                 }
 
-                if (GUI.Button(new Rect(Screen.width / 2, 0, Screen.width, Screen.height), "Jeep"))
+                if (GUI.Button(new Rect(Screen.width / 2, 0, Screen.width / 2, Screen.height), "Jeep: " + matchManager.GetRemainingVehicles(Team, VehicleType.Jeep).ToString()) && matchManager.GetRemainingVehicles(Team, VehicleType.Tank) > 0)
                 {
                     matchManager.ChangePlayerVehicle(this, VehicleType.Jeep);
                 }

@@ -8,17 +8,20 @@ public class MatchManager : MonoBehaviour
     public GameObject JeepPrefab;
     public GameObject TankPrefab;
 
-
     private Dictionary<Team,int> teamScore;
+    private Dictionary<Team, TeamStatus> teamStatuses;
     private List<PlayerController> players;
-
-
-
+    
 
 	void Start () {
         teamScore = new Dictionary<Team, int>();
-        teamScore.Add(Team.Brown, 0);
-        teamScore.Add(Team.Green, 0);
+        teamStatuses = new Dictionary<Team, TeamStatus>();
+        foreach (var team in Utils.Teams)
+        {
+            teamScore.Add(team, 0);
+            teamStatuses.Add(team, new TeamStatus());
+            Debug.Log(teamStatuses[team].GetRemainingVehicles(VehicleType.Tank));
+        }
         players = new List<PlayerController>();
         players.AddRange(Object.FindObjectsOfType(typeof(PlayerController)) as PlayerController[]);
 	}
@@ -26,7 +29,6 @@ public class MatchManager : MonoBehaviour
     internal void Score(Team team)
     {
         teamScore[team]++;
-
         if (teamScore[team] == RequiredCapturesToWin)
         {
             EndGame(team);
@@ -42,7 +44,6 @@ public class MatchManager : MonoBehaviour
                 player.Winner = true;
             }
         }
-
         GameEnded = true;
     }
 
@@ -68,5 +69,10 @@ public class MatchManager : MonoBehaviour
         instancePlayerController.Team = playerController.Team;
         sf.target = instancePlayerController.gameObject.transform;
         players.Add(instancePlayerController);
+    }
+
+    internal int GetRemainingVehicles(Team Team, VehicleType vehicleType)
+    {
+        return teamStatuses[Team].GetRemainingVehicles(vehicleType);
     }
 }

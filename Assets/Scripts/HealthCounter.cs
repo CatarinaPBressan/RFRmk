@@ -1,22 +1,16 @@
 using UnityEngine;
 using System.Collections;
 
-public class HealthCounter : MonoBehaviour {
-
-	// Use this for initialization
-
+public class HealthCounter : MonoBehaviour 
+{
     public int InitialHealth = 100;
+    
+    public int CurrentHealth { get; private set; }
 
-
-    private int CurrentHealth;
-	void Start () {
+    void Start () 
+    {
         CurrentHealth = InitialHealth;
 	}
-
-    public int GetCurrentHealth()
-    {
-        return CurrentHealth;
-    }
 
     public void Restore(int qtyToRestore)
     {
@@ -39,12 +33,10 @@ public class HealthCounter : MonoBehaviour {
     private void ChangeCurrentHealth(int quantity)
     {
         CurrentHealth += quantity;
-
         if (CurrentHealth > InitialHealth)
         {
             CurrentHealth = InitialHealth;
         }
-
         if (CurrentHealth <= 0)
         {
             Transform currentTransform = this.transform;
