@@ -37,13 +37,16 @@ public class MatchManager : MonoBehaviour
         }
     }
 
-    private void EndGame(Team Winner)
+    private void EndGame(Team Team, bool Win = true)
     {
         foreach (var player in Players)
         {
-            if (player.Team.Equals(Winner))
+            if (player.Team.Equals(Team))
             {
-                player.Winner = true;
+                if (Win)
+                {
+                    player.Winner = true;
+                }
             }
         }
         GameEnded = true;
@@ -79,5 +82,50 @@ public class MatchManager : MonoBehaviour
     internal void RemoveVehicle(Team Team, VehicleType vehicleType)
     {
         TeamStatus[Team].RemoveVehicle(vehicleType);
+        Debug.Log("tanks: " + TeamStatus[Team].GetRemainingVehiclesOfType(VehicleType.Tank) + " Jeeps: " + TeamStatus[Team].GetRemainingVehiclesOfType(VehicleType.Jeep));
+        if (TeamStatus[Team].HasVehiclesLeft())
+        {
+            PlayerController playerController = null;
+            foreach (var player in Players)
+            {
+                if (player.Team.Equals(Team))
+                {
+                    playerController = player;
+                    break;
+                }
+            }
+            Players.Remove(playerController);
+            SmoothFollow sf = playerController.GetPlayerCamera().GetComponent<SmoothFollow>() as SmoothFollow;
+            GameObject newVehicle = null;
+            if (TeamStatus[Team].GetRemainingVehiclesOfType(VehicleType.Jeep) > 0)
+            {
+                newVehicle = JeepPrefab;
+            }
+            else if (TeamStatus[Team].GetRemainingVehiclesOfType(VehicleType.Tank) > 0)
+            {
+                newVehicle = TankPrefab;
+            }
+
+            var bases = GameObject.FindObjectsOfType(typeof(TeamBaseBehaviour)) as TeamBaseBehaviour[];
+            Transform teamBaseTransform = null;
+            foreach (var teamBase in bases)
+            {
+                if (teamBase.Team.Equals(Team))
+                {
+                    teamBaseTransform = teamBase.transform;
+                    break;
+                }
+            }
+            var instance = GameObject.Instantiate(newVehicle, teamBaseTransform.position, new Quaternion()) as GameObject;
+            PlayerController instancePlayerController = instance.GetComponentInChildren<PlayerController>() as PlayerController;
+            instancePlayerController.Team = playerController.Team;
+            sf.target = instancePlayerController.gameObject.transform;
+            Players.Add(instancePlayerController);
+        }
+        else
+        {
+            EndGame(Team, false);
+            return;
+        }
     }
 }
