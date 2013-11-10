@@ -11,17 +11,18 @@ public class ShootingBehaviour : MonoBehaviour
     public float YOffset;
     public float ZOffset;
     public float CooldownTimeMs;
+    public bool InfiniteShots = false;
+    public int MaxAmmoSize = 10;
 
     private DateTime LastShotTime;
-    private bool IsCooledDown;
+    private bool IsCooledDown = true;
+    private int CurrentAmmoCount;
 
-    // Use this for initialization
     void Start()
     {
-        IsCooledDown = true;
+        CurrentAmmoCount = MaxAmmoSize;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!IsCooledDown)
@@ -37,7 +38,7 @@ public class ShootingBehaviour : MonoBehaviour
 
     public void Shoot()
     {
-        if (IsCooledDown)
+        if (IsCooledDown && CurrentAmmoCount > 0)
         {
             GameObject bulletInstance = Instantiate(Projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
             bulletInstance.transform.Translate(new Vector3(XOffset, YOffset, ZOffset), this.gameObject.transform);
@@ -45,6 +46,10 @@ public class ShootingBehaviour : MonoBehaviour
             foreach (var collider in hirearchyColliders)
             {
                 Physics.IgnoreCollision(bulletInstance.collider, collider);
+            }
+            if (!InfiniteShots)
+            {
+                CurrentAmmoCount--;
             }
             IsCooledDown = false;
             LastShotTime = DateTime.Now;
