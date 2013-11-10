@@ -7,46 +7,47 @@ public class MatchManager : MonoBehaviour
     public int RequiredCapturesToWin = 1;
     public GameObject JeepPrefab;
     public GameObject TankPrefab;
+    public bool GameEnded
+    {
+        get;
+        private set;
+    }
 
-    private Dictionary<Team,int> TeamScore;
-    private Dictionary<Team, TeamStatus> TeamStatuses;
+
+    private Dictionary<Team, TeamStatus> TeamStatus;
     private List<PlayerController> Players;
-    
 
-	void Start () {
-        TeamScore = new Dictionary<Team, int>();
-        TeamStatuses = new Dictionary<Team, TeamStatus>();
+    void Start()
+    {
+        TeamStatus = new Dictionary<Team, TeamStatus>();
         foreach (var team in Utils.Teams)
         {
-            TeamScore.Add(team, 0);
-            TeamStatuses.Add(team, new TeamStatus());
+            TeamStatus.Add(team, new TeamStatus());
         }
         Players = new List<PlayerController>();
         Players.AddRange(Object.FindObjectsOfType(typeof(PlayerController)) as PlayerController[]);
-	}
+    }
 
     internal void Score(Team team)
     {
-        TeamScore[team]++;
-        if (TeamScore[team] == RequiredCapturesToWin)
+        TeamStatus[team].AddScore();
+        if (TeamStatus[team].Score == RequiredCapturesToWin)
         {
             EndGame(team);
         }
     }
 
-    private void EndGame(Team team)
+    private void EndGame(Team Winner)
     {
         foreach (var player in Players)
         {
-            if (player.Team.Equals(team))
+            if (player.Team.Equals(Winner))
             {
                 player.Winner = true;
             }
         }
         GameEnded = true;
     }
-
-    public bool GameEnded { get; private set; }
 
     internal void ChangePlayerVehicle(PlayerController playerController, VehicleType vehicleType)
     {
@@ -70,13 +71,13 @@ public class MatchManager : MonoBehaviour
         Players.Add(instancePlayerController);
     }
 
-    internal int GetRemainingVehicles(Team Team, VehicleType vehicleType)
+    internal int GetRemainingVehiclesOfType(Team Team, VehicleType vehicleType)
     {
-        return TeamStatuses[Team].GetRemainingVehiclesOfType(vehicleType);
+        return TeamStatus[Team].GetRemainingVehiclesOfType(vehicleType);
     }
 
     internal void RemoveVehicle(Team Team, VehicleType vehicleType)
     {
-        TeamStatuses[Team].RemoveVehicle(vehicleType);
+        TeamStatus[Team].RemoveVehicle(vehicleType);
     }
 }

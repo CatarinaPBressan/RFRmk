@@ -5,13 +5,17 @@ using System.Text;
 
 class TeamStatus
 {
-    public Team Team { get; private set; }
+    public int Score
+    {
+        get;
+        private set;
+    }
 
     private Dictionary<VehicleType, int> RemainingVehicles;
-
-
+    
     public TeamStatus(int[] remainingVehicles = null)
     {
+        Score = 0;
         RemainingVehicles = new Dictionary<VehicleType, int>();
         foreach (var vehicleType in Utils.Vehicles)
         {
@@ -54,5 +58,10 @@ class TeamStatus
             return false;
         }
         return true;
+    }
+
+    internal void AddScore(int amount = 1)
+    {
+        Score += amount;
     }
 }

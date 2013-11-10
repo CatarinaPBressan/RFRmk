@@ -18,7 +18,7 @@ public class FlagBehaviour : MonoBehaviour {
     {
         if (!IsBeingCarried)
         {
-            PlayerController pc = enterer.gameObject.GetComponent<PlayerController>();
+            PlayerController pc = enterer.gameObject.GetComponent<PlayerController>() as PlayerController;
 
             if (pc != null && pc.CanCarryFlag && !pc.Team.Equals(this.team))
             {
