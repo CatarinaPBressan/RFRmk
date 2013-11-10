@@ -5,15 +5,10 @@ public class FlagTowerBehaviour : MonoBehaviour {
 
     public bool hasFlag = false;
     public Team team = Team.Brown;
-
     public GameObject flagGO;
+
     private bool isQuitting = false;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
     void OnApplicationQuit()
     {
         isQuitting = true;
@@ -30,10 +25,5 @@ public class FlagTowerBehaviour : MonoBehaviour {
                 fb.team = this.team;
             }
         }
-    }
-
-    void OnCollisionEnter(Collision collisionInfo)
-    {
-        Debug.Log(collisionInfo.rigidbody.name);
     }
 }

@@ -8,28 +8,27 @@ public class MatchManager : MonoBehaviour
     public GameObject JeepPrefab;
     public GameObject TankPrefab;
 
-    private Dictionary<Team,int> teamScore;
-    private Dictionary<Team, TeamStatus> teamStatuses;
-    private List<PlayerController> players;
+    private Dictionary<Team,int> TeamScore;
+    private Dictionary<Team, TeamStatus> TeamStatuses;
+    private List<PlayerController> Players;
     
 
 	void Start () {
-        teamScore = new Dictionary<Team, int>();
-        teamStatuses = new Dictionary<Team, TeamStatus>();
+        TeamScore = new Dictionary<Team, int>();
+        TeamStatuses = new Dictionary<Team, TeamStatus>();
         foreach (var team in Utils.Teams)
         {
-            teamScore.Add(team, 0);
-            teamStatuses.Add(team, new TeamStatus());
-            Debug.Log(teamStatuses[team].GetRemainingVehicles(VehicleType.Tank));
+            TeamScore.Add(team, 0);
+            TeamStatuses.Add(team, new TeamStatus());
         }
-        players = new List<PlayerController>();
-        players.AddRange(Object.FindObjectsOfType(typeof(PlayerController)) as PlayerController[]);
+        Players = new List<PlayerController>();
+        Players.AddRange(Object.FindObjectsOfType(typeof(PlayerController)) as PlayerController[]);
 	}
 
     internal void Score(Team team)
     {
-        teamScore[team]++;
-        if (teamScore[team] == RequiredCapturesToWin)
+        TeamScore[team]++;
+        if (TeamScore[team] == RequiredCapturesToWin)
         {
             EndGame(team);
         }
@@ -37,7 +36,7 @@ public class MatchManager : MonoBehaviour
 
     private void EndGame(Team team)
     {
-        foreach (var player in players)
+        foreach (var player in Players)
         {
             if (player.Team.Equals(team))
             {
@@ -51,7 +50,7 @@ public class MatchManager : MonoBehaviour
 
     internal void ChangePlayerVehicle(PlayerController playerController, VehicleType vehicleType)
     {
-        players.Remove(playerController);
+        Players.Remove(playerController);
         SmoothFollow sf = playerController.GetPlayerCamera().GetComponent<SmoothFollow>() as SmoothFollow;
         Transform playerTransform = playerController.gameObject.transform;
         GameObject instance = null;
@@ -68,11 +67,16 @@ public class MatchManager : MonoBehaviour
         PlayerController instancePlayerController = instance.GetComponentInChildren<PlayerController>() as PlayerController;
         instancePlayerController.Team = playerController.Team;
         sf.target = instancePlayerController.gameObject.transform;
-        players.Add(instancePlayerController);
+        Players.Add(instancePlayerController);
     }
 
     internal int GetRemainingVehicles(Team Team, VehicleType vehicleType)
     {
-        return teamStatuses[Team].GetRemainingVehicles(vehicleType);
+        return TeamStatuses[Team].GetRemainingVehiclesOfType(vehicleType);
+    }
+
+    internal void RemoveVehicle(Team Team, VehicleType vehicleType)
+    {
+        TeamStatuses[Team].RemoveVehicle(vehicleType);
     }
 }

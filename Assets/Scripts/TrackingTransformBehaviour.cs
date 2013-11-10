@@ -5,24 +5,24 @@ public class TrackingTransformBehaviour : MonoBehaviour
 {
     public Team Team;
 
-    private bool resetRotation = true;
-    private bool targetInRange = false;
-    private ShootingBehaviour turretFiringBehaviour;
-    private Transform targetTransform;
+    private bool ResetRotation = true;
+    private bool IsTargetInRange = false;
+    private ShootingBehaviour TurretShooting;
+    private Transform Target;
 
     void Start()
     {
-        turretFiringBehaviour = GetComponent<ShootingBehaviour>();
+        TurretShooting = GetComponent<ShootingBehaviour>();
     }
 
     void Update()
     {
-        if (targetTransform)
+        if (Target)
         {
-            this.transform.LookAt(targetTransform);
-            if (turretFiringBehaviour && targetInRange)
+            this.transform.LookAt(Target);
+            if (TurretShooting && IsTargetInRange)
             {
-                turretFiringBehaviour.Shoot();
+                TurretShooting.Shoot();
             }
         }
         else
@@ -30,10 +30,10 @@ public class TrackingTransformBehaviour : MonoBehaviour
             this.transform.Rotate(Vector3.up, Space.Self);
         }
 
-        if (resetRotation)
+        if (ResetRotation)
         {
             this.transform.rotation = new Quaternion();
-            resetRotation = false;
+            ResetRotation = false;
         }        
     }
 
@@ -44,19 +44,19 @@ public class TrackingTransformBehaviour : MonoBehaviour
         {
             if (!playerController.Team.Equals(this.Team))
             {
-                targetTransform = enterer.gameObject.transform;
+                Target = enterer.gameObject.transform;
             }
         }
     }
 
     internal void StartShooting()
     {
-        targetInRange = true;
+        IsTargetInRange = true;
     }
 
     internal void StopShooting()
     {
-        targetInRange = false;
+        IsTargetInRange = false;
     }
 
     internal void StopTracking(Collider exiter)
@@ -64,10 +64,10 @@ public class TrackingTransformBehaviour : MonoBehaviour
         var playerController = exiter.gameObject.GetComponent<PlayerController>();
         if (playerController)
         {
-            if (playerController.gameObject.transform.Equals(targetTransform))
+            if (playerController.gameObject.transform.Equals(Target))
             {
-                targetTransform = null;
-                resetRotation = true;
+                Target = null;
+                ResetRotation = true;
             }
         }
     }

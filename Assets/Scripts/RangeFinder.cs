@@ -5,58 +5,58 @@ public class RangeFinder : MonoBehaviour {
 
     public RangeType Range;
 
-    private TrackingTransformBehaviour tracker;
-    private GateBehaviour gate;
+    private TrackingTransformBehaviour Tracker;
+    private GateBehaviour Gate;
 
     void Start()
     {
-        tracker = this.transform.parent.GetComponent<TrackingTransformBehaviour>() as TrackingTransformBehaviour;
-        gate = this.transform.parent.GetComponent<GateBehaviour>() as GateBehaviour;
+        Tracker = this.transform.parent.GetComponent<TrackingTransformBehaviour>() as TrackingTransformBehaviour;
+        Gate = this.transform.parent.GetComponent<GateBehaviour>() as GateBehaviour;
     }
 
     void OnTriggerEnter(Collider enterer)
     {
-        if (tracker)
+        if (Tracker)
         {
             switch (Range)
             {
                 case RangeType.Tracking:
-                    tracker.StartTracking(enterer);
+                    Tracker.StartTracking(enterer);
                     break;
                 case RangeType.MaxRange:
-                    tracker.StartShooting();
+                    Tracker.StartShooting();
                     break;
                 case RangeType.MinRange:
-                    tracker.StopShooting();
+                    Tracker.StopShooting();
                     break;
             }
         }
-        if (gate)
+        if (Gate)
         {
-            gate.Open(enterer);
+            Gate.Open(enterer);
         }
     }
 
     void OnTriggerExit(Collider exiter)
     {
-        if (tracker)
+        if (Tracker)
         {
             switch (Range)
             {
                 case RangeType.Tracking:
-                    tracker.StopTracking(exiter);
+                    Tracker.StopTracking(exiter);
                     break;
                 case RangeType.MaxRange:
-                    tracker.StopShooting();
+                    Tracker.StopShooting();
                     break;
                 case RangeType.MinRange:
-                    tracker.StartShooting();
+                    Tracker.StartShooting();
                     break;
             }
         }
-        if (gate)
+        if (Gate)
         {
-            gate.Close(exiter);
+            Gate.Close(exiter);
         }
     }
 }

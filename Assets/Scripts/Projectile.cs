@@ -7,19 +7,18 @@ public class Projectile : MonoBehaviour {
     public float Speed = 1;
     public float LifeMs = 1000;
     public int Damage = 10;
-	// Use this for initialization
+
 	void Start () {
-        Destroy(this.gameObject, LifeMs / 1000); //schedule the object for deletion
+        Destroy(this.gameObject, LifeMs / 1000);
 	}
 	
-	// Update is called once per frame
 	void Update () {
         this.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
 	}
 
     void OnCollisionEnter(Collision collisionInfo)
     {
-        HealthCounter hc = collisionInfo.gameObject.GetComponent<HealthCounter>();
+        HealthCounter hc = collisionInfo.gameObject.GetComponentInChildren<HealthCounter>() as HealthCounter;
         if (hc != null)
         {
             hc.Damage(this.Damage);

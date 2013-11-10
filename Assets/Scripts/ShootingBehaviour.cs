@@ -6,48 +6,48 @@ using System.Collections.Generic;
 public class ShootingBehaviour : MonoBehaviour
 {
 
-    public GameObject projectile;
-    public float xOffset;
-    public float yOffset;
-    public float zOffset;
-    public float cooldownTimeMs;
+    public GameObject Projectile;
+    public float XOffset;
+    public float YOffset;
+    public float ZOffset;
+    public float CooldownTimeMs;
 
-    private DateTime lastShotTime;
-    private bool isCooledDown;
+    private DateTime LastShotTime;
+    private bool IsCooledDown;
 
     // Use this for initialization
     void Start()
     {
-        isCooledDown = true;
+        IsCooledDown = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isCooledDown)
+        if (!IsCooledDown)
         {
             DateTime timeNow = DateTime.Now;
-            TimeSpan elaspsedTimeSinceLastShot = timeNow - lastShotTime;
-            if (elaspsedTimeSinceLastShot >= TimeSpan.FromMilliseconds(cooldownTimeMs))
+            TimeSpan elaspsedTimeSinceLastShot = timeNow - LastShotTime;
+            if (elaspsedTimeSinceLastShot >= TimeSpan.FromMilliseconds(CooldownTimeMs))
             {
-                isCooledDown = true;
+                IsCooledDown = true;
             }
         }
     }
 
     public void Shoot()
     {
-        if (isCooledDown)
+        if (IsCooledDown)
         {
-            GameObject bulletInstance = Instantiate(projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
-            bulletInstance.transform.Translate(new Vector3(xOffset, yOffset, zOffset), this.gameObject.transform);
+            GameObject bulletInstance = Instantiate(Projectile, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
+            bulletInstance.transform.Translate(new Vector3(XOffset, YOffset, ZOffset), this.gameObject.transform);
             Collider[] hirearchyColliders = GetParentsColliders();
             foreach (var collider in hirearchyColliders)
             {
                 Physics.IgnoreCollision(bulletInstance.collider, collider);
             }
-            isCooledDown = false;
-            lastShotTime = DateTime.Now;
+            IsCooledDown = false;
+            LastShotTime = DateTime.Now;
         }
     }
 

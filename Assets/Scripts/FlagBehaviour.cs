@@ -5,34 +5,27 @@ public class FlagBehaviour : MonoBehaviour {
 
     public Team team = Team.Brown;
 
-    private bool isBeingCarried;
+    private bool IsBeingCarried = false;
 
-	// Use this for initialization
-	void Start () {
-        isBeingCarried = false;
-	}
-	
-	// Update is called once per frame
 	void Update () {
-        if (this.isBeingCarried)
+        if (IsBeingCarried)
         {
             this.transform.position = this.transform.parent.position;
         }
 	}
 
-    void OnCollisionEnter(Collision collisionInfo)
+    void OnCollisionEnter(Collision enterer)
     {
-        if (!this.isBeingCarried)
+        if (!IsBeingCarried)
         {
-            PlayerController pc = collisionInfo.gameObject.GetComponent<PlayerController>();
+            PlayerController pc = enterer.gameObject.GetComponent<PlayerController>();
 
             if (pc != null && pc.CanCarryFlag && !pc.Team.Equals(this.team))
             {
-                //Debug.Log("transform.parent stuff");
-                Physics.IgnoreCollision(this.gameObject.collider, collisionInfo.gameObject.collider);
-                this.transform.position = collisionInfo.gameObject.transform.position;
-                this.transform.parent = collisionInfo.gameObject.transform;
-                this.isBeingCarried = true;
+                Physics.IgnoreCollision(this.gameObject.collider, enterer.gameObject.collider);
+                this.transform.position = enterer.gameObject.transform.position;
+                this.transform.parent = enterer.gameObject.transform;
+                IsBeingCarried = true;
             }
         }
     } 

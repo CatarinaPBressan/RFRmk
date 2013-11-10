@@ -4,36 +4,36 @@ using System.Collections;
 public class TankTurretBehaviour : MonoBehaviour {
 
     public float TurnSpeed = 1f;
-    public bool flipped = false;
+    public bool Flipped = false;
 
-    private GameObject turretGO;
+    private GameObject Turret;
 
     void Start()
     {
-        turretGO = this.gameObject;
+        Turret = this.gameObject;
     }
 
     internal void TurnAntiClockwise(bool force = false)
     {
-        if (flipped && !force)
+        if (Flipped && !force)
         {
             TurnClockwise(true);
         }
         else
         {
-            turretGO.transform.Rotate(Vector3.up * TurnSpeed, Space.Self);
+            Turret.transform.Rotate(Vector3.up * TurnSpeed, Space.Self);
         }
     }
 
     internal void TurnClockwise(bool force = false)
     {
-        if (flipped && !force)
+        if (Flipped && !force)
         {
             TurnAntiClockwise(true);
         }
         else
         {
-            turretGO.transform.Rotate(Vector3.down * TurnSpeed, Space.Self);
+            Turret.transform.Rotate(Vector3.down * TurnSpeed, Space.Self);
         }
-    }//gustavosjc
+    }
 }

@@ -3,54 +3,48 @@ using System.Collections;
 
 public class VehicleController : MonoBehaviour {
 
-    public float forwardPower = 100;
-    public float turningPower = 25;
-    public MovementType movementType = MovementType.Wheels;
-    public bool canCarryFlag = false;
-    public float movingThreshold = 4f;
+    public float ForwardPower = 100;
+    public float TurningPower = 25;
+    public MovementType Movement = MovementType.Wheels;
+    public VehicleType Vehicle = VehicleType.Jeep;
+    public bool CanCarryFlag = false;
+    public float MovingThreshold = 4f;
 
-    private bool _isMoving = false;
+    private bool IsMoving = false;
     
-	void Start () {
-	}
-
-    void Update()
-    {
-    }
-	
 	void FixedUpdate () {
-        _isMoving = CheckMoving();
+        IsMoving = CheckMoving();
 	}
 
     private void MoveForward()
     {
-        this.rigidbody.AddForce(this.transform.forward * (this.rigidbody.mass * forwardPower));
+        this.rigidbody.AddForce(this.transform.forward * (this.rigidbody.mass * ForwardPower));
     }
 
     private void MoveBackward()
     {
-        this.rigidbody.AddForce(-this.transform.forward * (this.rigidbody.mass * forwardPower));
+        this.rigidbody.AddForce(-this.transform.forward * (this.rigidbody.mass * ForwardPower));
     }
 
     private void TurnRight()
     {
-        if ((_isMoving || this.movementType == MovementType.Treads))
+        if ((IsMoving || this.Movement == MovementType.Treads))
         {
-            this.rigidbody.AddTorque(Vector3.up * (this.rigidbody.angularDrag + turningPower) * this.rigidbody.mass);
+            this.rigidbody.AddTorque(Vector3.up * (this.rigidbody.angularDrag + TurningPower) * this.rigidbody.mass);
         }
     }
 
     private void TurnLeft()
     {
-        if ((_isMoving || this.movementType == MovementType.Treads))
+        if ((IsMoving || this.Movement == MovementType.Treads))
         {
-            this.rigidbody.AddTorque(Vector3.down * (this.rigidbody.angularDrag + turningPower) * this.rigidbody.mass);
+            this.rigidbody.AddTorque(Vector3.down * (this.rigidbody.angularDrag + TurningPower) * this.rigidbody.mass);
         }
     }
 
     private bool CheckMoving()
     {
-        if (this.rigidbody.velocity.sqrMagnitude < movingThreshold)
+        if (this.rigidbody.velocity.sqrMagnitude < MovingThreshold)
         {
             return false;
         }

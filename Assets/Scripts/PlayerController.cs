@@ -9,91 +9,92 @@ public class PlayerController : MonoBehaviour {
     {
         get
         {
-            if (vehicleController != null)
+            if (Vehicle != null)
             {
-                return vehicleController.canCarryFlag;
+                return Vehicle.CanCarryFlag;
             }
             return false;
         }
     }
 
-    private VehicleController vehicleController;
-    private ShootingBehaviour shootingBehaviour;
-    private MatchManager matchManager;
-    private TankTurretBehaviour tankTurret;
+    private VehicleController Vehicle;
+    private ShootingBehaviour ShootingBehaviour;
+    private MatchManager Manager;
+    private TankTurretBehaviour TankTurret;
 
-    private bool canControlBase = false;
-    private bool changingVehicle = false;
+    private bool CanControlBase = false;
+    private bool ChangingVehicle = false;
 
 	void Start () 
     {
-        vehicleController = gameObject.GetComponent<VehicleController>() as VehicleController;
-        shootingBehaviour = gameObject.GetComponentInChildren<ShootingBehaviour>() as ShootingBehaviour;
-        tankTurret = gameObject.GetComponentInChildren<TankTurretBehaviour>() as TankTurretBehaviour;
-        matchManager = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
+        Vehicle = gameObject.GetComponent<VehicleController>() as VehicleController;
+        ShootingBehaviour = gameObject.GetComponentInChildren<ShootingBehaviour>() as ShootingBehaviour;
+        TankTurret = gameObject.GetComponentInChildren<TankTurretBehaviour>() as TankTurretBehaviour;
+        Manager = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
 	}
 	
     void Update()
     {
-        if (!matchManager.GameEnded)
+        //TODO: Replace SendMessages
+        if (!Manager.GameEnded)
         {
-            if (!changingVehicle)
+            if (!ChangingVehicle)
             {
-                if (vehicleController)
+                if (Vehicle)
                 {
                     if (Input.GetKey(KeyCode.W))
                     {
-                        vehicleController.SendMessage("MoveForward");
+                        Vehicle.SendMessage("MoveForward");
                     }
                     if (Input.GetKey(KeyCode.S))
                     {
-                        vehicleController.SendMessage("MoveBackward");
+                        Vehicle.SendMessage("MoveBackward");
                     }
 
                     if (Input.GetKey(KeyCode.A))
                     {
-                        vehicleController.SendMessage("TurnLeft");
+                        Vehicle.SendMessage("TurnLeft");
                     }
 
                     if (Input.GetKey(KeyCode.D))
                     {
-                        vehicleController.SendMessage("TurnRight");
+                        Vehicle.SendMessage("TurnRight");
                     }
                 }
-                if (shootingBehaviour)
+                if (ShootingBehaviour)
                 {
                     if (Input.GetKey(KeyCode.Space))
                     {
-                        shootingBehaviour.SendMessage("Shoot");
+                        ShootingBehaviour.SendMessage("Shoot");
                     }
                 }
-                if (tankTurret)
+                if (TankTurret)
                 {
                     if (Input.GetKey(KeyCode.Q))
                     {
-                        tankTurret.TurnAntiClockwise();
+                        TankTurret.TurnAntiClockwise();
                     }
                     if (Input.GetKey(KeyCode.E))
                     {
-                        tankTurret.TurnClockwise();
+                        TankTurret.TurnClockwise();
                     }
                 }
 
-                if (canControlBase)
+                if (CanControlBase)
                 {
                     if (Input.GetKeyDown(KeyCode.X))
                     {
-                        changingVehicle = true;
+                        ChangingVehicle = true;
                     }
                 }
             }
             else
             {
-                if (canControlBase)
+                if (CanControlBase)
                 {
                     if (Input.GetKeyDown(KeyCode.X))
                     {
-                        changingVehicle = false;
+                        ChangingVehicle = false;
                     }
                 }
             }
@@ -102,7 +103,7 @@ public class PlayerController : MonoBehaviour {
 
     void OnGUI()
     {
-        if (matchManager.GameEnded)
+        if (Manager.GameEnded)
         {
             GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "End Game");
             string msg;
@@ -118,18 +119,18 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
-            if (changingVehicle)
+            if (ChangingVehicle)
             {
                 GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "Vehicle Selection");
 
-                if (GUI.Button(new Rect(0, 0, Screen.width / 2, Screen.height), "Tank: " + matchManager.GetRemainingVehicles(Team, VehicleType.Tank).ToString()) && matchManager.GetRemainingVehicles(Team, VehicleType.Jeep) > 0)
+                if (GUI.Button(new Rect(0, 0, Screen.width / 2, Screen.height), "Tank: " + Manager.GetRemainingVehicles(Team, VehicleType.Tank).ToString()) && Manager.GetRemainingVehicles(Team, VehicleType.Jeep) > 0)
                 {
-                    matchManager.ChangePlayerVehicle(this, VehicleType.Tank);
+                    Manager.ChangePlayerVehicle(this, VehicleType.Tank);
                 }
 
-                if (GUI.Button(new Rect(Screen.width / 2, 0, Screen.width / 2, Screen.height), "Jeep: " + matchManager.GetRemainingVehicles(Team, VehicleType.Jeep).ToString()) && matchManager.GetRemainingVehicles(Team, VehicleType.Tank) > 0)
+                if (GUI.Button(new Rect(Screen.width / 2, 0, Screen.width / 2, Screen.height), "Jeep: " + Manager.GetRemainingVehicles(Team, VehicleType.Jeep).ToString()) && Manager.GetRemainingVehicles(Team, VehicleType.Tank) > 0)
                 {
-                    matchManager.ChangePlayerVehicle(this, VehicleType.Jeep);
+                    Manager.ChangePlayerVehicle(this, VehicleType.Jeep);
                 }
             }
         }
@@ -139,11 +140,16 @@ public class PlayerController : MonoBehaviour {
 
     internal void SetBaseControls(bool status)
     {
-        canControlBase = status;
+        CanControlBase = status;
     }
 
     internal Camera GetPlayerCamera()
     {
         return Camera.main;
+    }
+
+    internal void RemoveCurrentVehicle()
+    {
+        Manager.RemoveVehicle(Team, Vehicle.Vehicle);
     }
 }

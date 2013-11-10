@@ -15,7 +15,7 @@ class TeamStatus
         RemainingVehicles = new Dictionary<VehicleType, int>();
         foreach (var vehicleType in Utils.Vehicles)
         {
-            RemainingVehicles.Add(vehicleType, 0);
+            RemainingVehicles.Add(vehicleType, 5);
         }
         if (remainingVehicles != null)
         {
@@ -32,8 +32,27 @@ class TeamStatus
         RemainingVehicles[vehicle]--;
     }
 
-    internal int GetRemainingVehicles(VehicleType vehicle)
+    internal int GetRemainingVehiclesOfType(VehicleType vehicle)
     {
         return RemainingVehicles[vehicle];
+    }
+
+    internal int GetRemainingVehicles()
+    {
+        int total = 0;
+        foreach (var vehicleType in Utils.Vehicles)
+        {
+            total += RemainingVehicles[vehicleType];
+        }
+        return total;
+    }
+
+    internal bool HasVehiclesLeft()
+    {
+        if (GetRemainingVehicles() <= 0)
+        {
+            return false;
+        }
+        return true;
     }
 }

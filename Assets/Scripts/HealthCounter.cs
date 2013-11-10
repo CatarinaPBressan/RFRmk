@@ -4,23 +4,20 @@ using System.Collections;
 public class HealthCounter : MonoBehaviour 
 {
     public int InitialHealth = 100;
-    
-    public int CurrentHealth { get; private set; }
+    public int CurrentHealth
+    {
+        get;
+        private set;
+    }
+
+    private PlayerController Player;
 
     void Start () 
     {
+        Player = this.gameObject.GetComponent<PlayerController>() as PlayerController;
         CurrentHealth = InitialHealth;
 	}
-
-    public void Restore(int qtyToRestore)
-    {
-        if (qtyToRestore < 0)
-        {
-            return;
-        }
-        ChangeCurrentHealth(qtyToRestore);
-    }
-    
+  
     public void Damage(int qtyToDamage)
     {
         if (qtyToDamage < 0)
@@ -45,6 +42,10 @@ public class HealthCounter : MonoBehaviour
                 currentTransform = currentTransform.transform.parent;
             }
             Destroy(currentTransform.gameObject);
+            if (Player)
+            {
+                Player.RemoveCurrentVehicle();
+            }
         }
     }
 }

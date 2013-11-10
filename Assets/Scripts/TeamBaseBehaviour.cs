@@ -3,27 +3,27 @@ using System.Collections;
 
 public class TeamBaseBehaviour : MonoBehaviour {
 
-    public Team team;
+    public Team Team;
 
-    private MatchManager matchManager;
+    private MatchManager Manager;
 
     void Start()
     {
-        matchManager = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
+        Manager = Object.FindObjectOfType(typeof(MatchManager)) as MatchManager;
     }
 
     void OnTriggerEnter(Collider enterer)
     {
         FlagBehaviour fb = enterer.GetComponent<FlagBehaviour>();
-        if (fb != null && fb.team != this.team)
+        if (fb != null && fb.team != Team)
         {
             Destroy(fb.gameObject);
-            matchManager.Score(team);
+            Manager.Score(Team);
         }
 
         PlayerController pc = enterer.GetComponent<PlayerController>();
 
-        if (pc != null && pc.Team == this.team)
+        if (pc != null && pc.Team == Team)
         {
             pc.SetBaseControls(true);
         }
@@ -33,7 +33,7 @@ public class TeamBaseBehaviour : MonoBehaviour {
     {
         PlayerController pc = exiter.GetComponent<PlayerController>();
 
-        if (pc != null && pc.Team == this.team)
+        if (pc != null && pc.Team == Team)
         {
             pc.SetBaseControls(false);
         }
