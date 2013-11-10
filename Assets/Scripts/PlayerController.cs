@@ -44,28 +44,26 @@ public class PlayerController : MonoBehaviour {
                 {
                     if (Input.GetKey(KeyCode.W))
                     {
-                        Vehicle.SendMessage("MoveForward");
+                        Vehicle.MoveForward();
                     }
                     if (Input.GetKey(KeyCode.S))
                     {
-                        Vehicle.SendMessage("MoveBackward");
+                        Vehicle.MoveBackward();
                     }
-
                     if (Input.GetKey(KeyCode.A))
                     {
-                        Vehicle.SendMessage("TurnLeft");
+                        Vehicle.TurnLeft();
                     }
-
                     if (Input.GetKey(KeyCode.D))
                     {
-                        Vehicle.SendMessage("TurnRight");
+                        Vehicle.TurnRight();
                     }
                 }
                 if (ShootingBehaviour)
                 {
                     if (Input.GetKey(KeyCode.Space))
                     {
-                        ShootingBehaviour.SendMessage("Shoot");
+                        ShootingBehaviour.Shoot();
                     }
                 }
                 if (TankTurret)

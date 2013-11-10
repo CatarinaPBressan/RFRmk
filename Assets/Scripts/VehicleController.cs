@@ -9,36 +9,63 @@ public class VehicleController : MonoBehaviour {
     public VehicleType Vehicle = VehicleType.Jeep;
     public bool CanCarryFlag = false;
     public float MovingThreshold = 4f;
+    public int MaxFuelUnits = 100;
+    public bool ConsumeFuelOnTurn = false;
 
-    private bool IsMoving = false;
-    
-	void FixedUpdate () {
+    private int CurrentFuelUnits;
+    private bool IsMoving;
+    private static readonly int FUEL_CONSUMPTION_RATE = 1;
+
+
+    void Start()
+    {
+        CurrentFuelUnits = MaxFuelUnits;
+    }
+
+    void FixedUpdate()
+    {
         IsMoving = CheckMoving();
-	}
-
-    private void MoveForward()
-    {
-        this.rigidbody.AddForce(this.transform.forward * (this.rigidbody.mass * ForwardPower));
     }
 
-    private void MoveBackward()
+    public void MoveForward()
     {
-        this.rigidbody.AddForce(-this.transform.forward * (this.rigidbody.mass * ForwardPower));
-    }
-
-    private void TurnRight()
-    {
-        if ((IsMoving || this.Movement == MovementType.Treads))
+        if (CurrentFuelUnits > 0)
         {
-            this.rigidbody.AddTorque(Vector3.up * (this.rigidbody.angularDrag + TurningPower) * this.rigidbody.mass);
+            this.rigidbody.AddForce(this.transform.forward * (this.rigidbody.mass * ForwardPower));
+            CurrentFuelUnits -= FUEL_CONSUMPTION_RATE;
         }
     }
 
-    private void TurnLeft()
+    public void MoveBackward()
     {
-        if ((IsMoving || this.Movement == MovementType.Treads))
+        if (CurrentFuelUnits > 0)
+        {
+            this.rigidbody.AddForce(-this.transform.forward * (this.rigidbody.mass * ForwardPower));
+            CurrentFuelUnits -= FUEL_CONSUMPTION_RATE;
+        }
+    }
+
+    public void TurnRight()
+    {
+        if ((IsMoving || this.Movement == MovementType.Treads) && (CurrentFuelUnits > 0 || !ConsumeFuelOnTurn))
+        {
+            this.rigidbody.AddTorque(Vector3.up * (this.rigidbody.angularDrag + TurningPower) * this.rigidbody.mass);
+            if (ConsumeFuelOnTurn)
+            {
+                CurrentFuelUnits -= FUEL_CONSUMPTION_RATE;
+            }
+        }
+    }
+
+    public void TurnLeft()
+    {
+        if ((IsMoving || this.Movement == MovementType.Treads) && (CurrentFuelUnits > 0 || !ConsumeFuelOnTurn))
         {
             this.rigidbody.AddTorque(Vector3.down * (this.rigidbody.angularDrag + TurningPower) * this.rigidbody.mass);
+            if (ConsumeFuelOnTurn)
+            {
+                CurrentFuelUnits -= FUEL_CONSUMPTION_RATE;
+            }
         }
     }
 
