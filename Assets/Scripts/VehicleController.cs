@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class VehicleController : MonoBehaviour {
+public class VehicleController : VehicleBase {
 
     public float ForwardPower = 100;
     public float TurningPower = 25;
@@ -10,26 +10,14 @@ public class VehicleController : MonoBehaviour {
     public VehicleType Vehicle = VehicleType.Jeep;
     public bool CanCarryFlag = false;
     public float MovingThreshold = 4f;
-    public int MaxFuelUnits = 100;
     public bool ConsumeFuelOnTurn = false;
-    private float CurrentFuelUnits;
-    private Scrollbar FuelIndicator;
     private bool IsMoving;
-    private static readonly int FUEL_CONSUMPTION_RATE = 1;
+    private static readonly float FUEL_CONSUMPTION_RATE = 0.1f;
 
-
-    void Start()
-    {
-        CurrentFuelUnits = MaxFuelUnits;
-
-        FuelIndicator = GetComponentInChildren<Scrollbar>();
-    }
 
     void FixedUpdate()
     {
-        Debug.Log("valor do fuel = "  + (CurrentFuelUnits / 100));
-        Debug.Log("valor do size indicador = " + FuelIndicator.size);
-        FuelIndicator.size =  CurrentFuelUnits / 100f;
+        base.FixedUpdate();
 
         IsMoving = CheckMoving();
     }
@@ -39,10 +27,11 @@ public class VehicleController : MonoBehaviour {
         if (CurrentFuelUnits > 0)
         {
             this.GetComponent<Rigidbody>().AddForce(this.transform.forward * (this.GetComponent<Rigidbody>().mass * ForwardPower));
-            CurrentFuelUnits -= FUEL_CONSUMPTION_RATE;
+           CurrentFuelUnits -= FUEL_CONSUMPTION_RATE;
         }
     }
 
+  
     public void MoveBackward()
     {
         if (CurrentFuelUnits > 0)
