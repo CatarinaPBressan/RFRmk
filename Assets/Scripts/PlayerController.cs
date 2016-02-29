@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour {
 
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     private ShootingBehaviour ShootingBehaviour;
     private MatchManager Manager;
     private TankTurretBehaviour TankTurret;
+    public string moveDirection = "";
 
     private bool CanControlBase = false;
     private bool ChangingVehicle = false;
@@ -42,26 +44,28 @@ public class PlayerController : MonoBehaviour {
             {
                 if (Vehicle)
                 {
-                    if (Input.GetKey(KeyCode.W))
+
+
+                    if (Input.GetKey(KeyCode.W) || CrossPlatformInputManager.GetAxis("Vertical") > 0.5f )
                     {
                         Vehicle.MoveForward();
                     }
-                    if (Input.GetKey(KeyCode.S))
+                    if (Input.GetKey(KeyCode.S) || CrossPlatformInputManager.GetAxis("Vertical") < -0.5f)
                     {
                         Vehicle.MoveBackward();
                     }
-                    if (Input.GetKey(KeyCode.A))
+                    if (Input.GetKey(KeyCode.A) || CrossPlatformInputManager.GetAxis("Horizontal") < -0.5f)
                     {
                         Vehicle.TurnLeft();
                     }
-                    if (Input.GetKey(KeyCode.D))
+                    if (Input.GetKey(KeyCode.D) || CrossPlatformInputManager.GetAxis("Horizontal") > 0.5f)
                     {
                         Vehicle.TurnRight();
                     }
                 }
                 if (ShootingBehaviour)
                 {
-                    if (Input.GetKey(KeyCode.Space))
+                    if (Input.GetKey(KeyCode.Space) || CrossPlatformInputManager.GetButtonDown("Shot"))
                     {
                         ShootingBehaviour.Shoot();
                     }

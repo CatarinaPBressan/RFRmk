@@ -22,7 +22,7 @@ public class FlagBehaviour : MonoBehaviour {
 
             if (pc != null && pc.CanCarryFlag && !pc.Team.Equals(this.team))
             {
-                Physics.IgnoreCollision(this.gameObject.collider, enterer.gameObject.collider);
+                Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), enterer.gameObject.GetComponent<Collider>());
                 this.transform.position = enterer.gameObject.transform.position;
                 this.transform.parent = enterer.gameObject.transform;
                 IsBeingCarried = true;

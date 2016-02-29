@@ -16,7 +16,7 @@ public class ShootingBehaviour : MonoBehaviour
 
     private DateTime LastShotTime;
     private bool IsCooledDown = true;
-    private int CurrentAmmoCount;
+    public int CurrentAmmoCount;
 
     void Start()
     {
@@ -45,7 +45,7 @@ public class ShootingBehaviour : MonoBehaviour
             Collider[] hirearchyColliders = GetParentsColliders();
             foreach (var collider in hirearchyColliders)
             {
-                Physics.IgnoreCollision(bulletInstance.collider, collider);
+                Physics.IgnoreCollision(bulletInstance.GetComponent<Collider>(), collider);
             }
             if (!InfiniteShots)
             {
@@ -62,7 +62,7 @@ public class ShootingBehaviour : MonoBehaviour
         List<Collider> cols = new List<Collider>();
         while (currentTransform != null)
         {
-            Collider currentCollider = currentTransform.gameObject.collider;
+            Collider currentCollider = currentTransform.gameObject.GetComponent<Collider>();
             if (currentCollider != null)
             {
                 cols.Add(currentCollider);
