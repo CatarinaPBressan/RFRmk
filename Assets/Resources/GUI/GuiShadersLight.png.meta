@@ -1,0 +1,865 @@
+fileFormatVersion: 2
+guid: dee8cdd64ae883548a811ab4e7b6a340
+timeCreated: 1454778711
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GuiShadersLight_0
+    21300002: GuiShadersLight_1
+    21300004: GuiShadersLight_2
+    21300006: GuiShadersLight_3
+    21300008: GuiShadersLight_4
+    21300010: GuiShadersLight_5
+    21300012: GuiShadersLight_6
+    21300014: GuiShadersLight_7
+    21300016: GuiShadersLight_8
+    21300018: GuiShadersLight_9
+    21300020: GuiShadersLight_10
+    21300022: GuiShadersLight_11
+    21300024: GuiShadersLight_12
+    21300026: GuiShadersLight_13
+    21300028: GuiShadersLight_14
+    21300030: GuiShadersLight_15
+    21300032: GuiShadersLight_16
+    21300034: GuiShadersLight_17
+    21300036: GuiShadersLight_18
+    21300038: GuiShadersLight_19
+    21300040: GuiShadersLight_20
+    21300042: GuiShadersLight_21
+    21300044: GuiShadersLight_22
+    21300046: GuiShadersLight_23
+    21300048: GuiShadersLight_24
+    21300050: GuiShadersLight_25
+    21300052: GuiShadersLight_26
+    21300054: GuiShadersLight_27
+    21300056: GuiShadersLight_28
+    21300058: GuiShadersLight_29
+    21300060: GuiShadersLight_30
+    21300062: GuiShadersLight_31
+    21300064: GuiShadersLight_32
+    21300066: GuiShadersLight_33
+    21300068: GuiShadersLight_34
+    21300070: GuiShadersLight_35
+    21300072: GuiShadersLight_36
+    21300074: GuiShadersLight_37
+    21300076: GuiShadersLight_38
+    21300078: GuiShadersLight_39
+    21300080: GuiShadersLight_40
+    21300082: GuiShadersLight_41
+    21300084: GuiShadersLight_42
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 8192
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: GuiShadersLight_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 675
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 40}
+        - {x: -40, y: 31}
+        - {x: -40, y: -21}
+        - {x: -32, y: -40}
+        - {x: 23, y: -40}
+        - {x: 40, y: -31}
+        - {x: 40, y: 34}
+        - {x: 22, y: 40}
+    - name: GuiShadersLight_1
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 668
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 40}
+        - {x: -30, y: 39}
+        - {x: -40, y: 26}
+        - {x: -40, y: -21}
+        - {x: -38, y: -30}
+        - {x: -30, y: -40}
+        - {x: 26, y: -40}
+        - {x: 40, y: -34}
+        - {x: 40, y: 23}
+        - {x: 23, y: 40}
+    - name: GuiShadersLight_2
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 703
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 40}
+        - {x: -30, y: 39}
+        - {x: -40, y: 26}
+        - {x: -40, y: -21}
+        - {x: -38, y: -30}
+        - {x: -30, y: -40}
+        - {x: 26, y: -40}
+        - {x: 40, y: -34}
+        - {x: 40, y: 23}
+        - {x: 23, y: 40}
+    - name: GuiShadersLight_3
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 668
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_4
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 649
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 40}
+        - {x: -30, y: 39}
+        - {x: -40, y: 26}
+        - {x: -40, y: -21}
+        - {x: -38, y: -30}
+        - {x: -30, y: -40}
+        - {x: 26, y: -40}
+        - {x: 40, y: -34}
+        - {x: 40, y: 23}
+        - {x: 23, y: 40}
+    - name: GuiShadersLight_5
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 628
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 40}
+        - {x: -40, y: 31}
+        - {x: -40, y: -21}
+        - {x: -32, y: -40}
+        - {x: 23, y: -40}
+        - {x: 40, y: -31}
+        - {x: 40, y: 34}
+        - {x: 22, y: 40}
+    - name: GuiShadersLight_6
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 592
+        width: 96
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 50}
+        - {x: -48, y: 50}
+        - {x: -48, y: -50}
+        - {x: 28, y: -50}
+        - {x: 48, y: -43}
+        - {x: 48, y: 29}
+        - {x: 33, y: 44}
+    - name: GuiShadersLight_7
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 605
+        width: 81
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34.5, y: 40}
+        - {x: -40.5, y: 26}
+        - {x: -40.5, y: -33}
+        - {x: -30.5, y: -40}
+        - {x: 28.5, y: -40}
+        - {x: 40.5, y: -23}
+        - {x: 40.5, y: 24}
+        - {x: 24.5, y: 40}
+    - name: GuiShadersLight_8
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 649
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_9
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 562
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 40}
+        - {x: -40, y: 31}
+        - {x: -40, y: -21}
+        - {x: -32, y: -40}
+        - {x: 23, y: -40}
+        - {x: 40, y: -31}
+        - {x: 40, y: 34}
+        - {x: 22, y: 40}
+    - name: GuiShadersLight_10
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 597
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_11
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 534
+        width: 97
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -48.5, y: 49}
+        - {x: -48.5, y: -49}
+        - {x: 48.5, y: -49}
+        - {x: 48.5, y: 49}
+    - name: GuiShadersLight_12
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 525
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 40}
+        - {x: -40, y: 31}
+        - {x: -40, y: -21}
+        - {x: -32, y: -40}
+        - {x: 23, y: -40}
+        - {x: 40, y: -31}
+        - {x: 40, y: 34}
+        - {x: 22, y: 40}
+    - name: GuiShadersLight_13
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 501
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_14
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 506
+        width: 110
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55, y: 24}
+        - {x: -55, y: -24}
+        - {x: 55, y: -24}
+        - {x: 55, y: 24}
+    - name: GuiShadersLight_15
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 544
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_16
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 530
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_17
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 498
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 40}
+        - {x: -40, y: 31}
+        - {x: -40, y: -21}
+        - {x: -32, y: -40}
+        - {x: 23, y: -40}
+        - {x: 40, y: -31}
+        - {x: 40, y: 34}
+        - {x: 22, y: 40}
+    - name: GuiShadersLight_18
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 534
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GuiShadersLight_19
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 432
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_20
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 474
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_21
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 432
+        width: 110
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55, y: 24}
+        - {x: -55, y: -24}
+        - {x: 55, y: -24}
+        - {x: 55, y: 24}
+    - name: GuiShadersLight_22
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 432
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_23
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 343
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38, y: 80}
+        - {x: -80, y: 62}
+        - {x: -80, y: -68}
+        - {x: -48, y: -80}
+        - {x: 48, y: -80}
+        - {x: 80, y: -39}
+        - {x: 80, y: 47}
+        - {x: 58, y: 80}
+    - name: GuiShadersLight_24
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 392
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 40}
+        - {x: -40, y: 31}
+        - {x: -40, y: -21}
+        - {x: -32, y: -40}
+        - {x: 23, y: -40}
+        - {x: 40, y: -31}
+        - {x: 40, y: 34}
+        - {x: 22, y: 40}
+    - name: GuiShadersLight_25
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 281
+        width: 129
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64.5, y: 87.5}
+        - {x: -64.5, y: -55.5}
+        - {x: -51.5, y: -87.5}
+        - {x: 53.5, y: -87.5}
+        - {x: 64.5, y: -60.5}
+        - {x: 64.5, y: 50.5}
+        - {x: 15.5, y: 87.5}
+      - - {x: 34.5, y: 87.5}
+        - {x: 34.5, y: 64.5}
+        - {x: 37.5, y: 61.5}
+        - {x: 64.5, y: 61.5}
+        - {x: 64.5, y: 87.5}
+    - name: GuiShadersLight_26
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 335
+        width: 76
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38, y: 30.5}
+        - {x: -38, y: -30.5}
+        - {x: 10, y: -30.5}
+        - {x: 38, y: -2.5}
+        - {x: 38, y: 2.5}
+        - {x: 10, y: 30.5}
+    - name: GuiShadersLight_27
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 360
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 40}
+        - {x: -30, y: 39}
+        - {x: -40, y: 26}
+        - {x: -40, y: -21}
+        - {x: -38, y: -30}
+        - {x: -30, y: -40}
+        - {x: 26, y: -40}
+        - {x: 40, y: -34}
+        - {x: 40, y: 23}
+        - {x: 23, y: 40}
+    - name: GuiShadersLight_28
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 326
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_29
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 307
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_30
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 275
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 40}
+        - {x: -40, y: 31}
+        - {x: -40, y: -21}
+        - {x: -32, y: -40}
+        - {x: 23, y: -40}
+        - {x: 40, y: -31}
+        - {x: 40, y: 34}
+        - {x: 22, y: 40}
+    - name: GuiShadersLight_31
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 227
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 40}
+        - {x: -40, y: 31}
+        - {x: -40, y: -21}
+        - {x: -32, y: -40}
+        - {x: 23, y: -40}
+        - {x: 40, y: -31}
+        - {x: 40, y: 34}
+        - {x: 22, y: 40}
+    - name: GuiShadersLight_32
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 86
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -80, y: -58}
+        - {x: -65, y: -80}
+        - {x: 49, y: -80}
+        - {x: 80, y: -62}
+        - {x: 80, y: 62}
+        - {x: 79, y: 64}
+        - {x: 56, y: 80}
+        - {x: -41, y: 80}
+        - {x: -80, y: 65}
+      - - {x: 74, y: 80}
+        - {x: 73, y: 74}
+        - {x: 73, y: 48}
+        - {x: 79, y: 40}
+        - {x: 80, y: 40}
+        - {x: 80, y: 80}
+      - - {x: -80, y: 80}
+        - {x: -80, y: 66}
+        - {x: -76, y: 67}
+        - {x: -67, y: 77}
+        - {x: -67, y: 80}
+    - name: GuiShadersLight_33
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 188
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: -40}
+        - {x: -36, y: -40}
+        - {x: -36, y: -36}
+        - {x: -39, y: -32}
+        - {x: -40, y: -32}
+      - - {x: -31, y: 40}
+        - {x: -40, y: 31}
+        - {x: -40, y: -21}
+        - {x: -32, y: -40}
+        - {x: 23, y: -40}
+        - {x: 40, y: -31}
+        - {x: 40, y: 34}
+        - {x: 22, y: 40}
+    - name: GuiShadersLight_34
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 227
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 40}
+        - {x: -40, y: 31}
+        - {x: -40, y: -21}
+        - {x: -32, y: -40}
+        - {x: 23, y: -40}
+        - {x: 40, y: -31}
+        - {x: 40, y: 34}
+        - {x: 22, y: 40}
+    - name: GuiShadersLight_35
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 240
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31.5, y: 40.5}
+        - {x: -26.5, y: 40.5}
+        - {x: -40.5, y: 35.5}
+        - {x: -40.5, y: -22.5}
+        - {x: -33.5, y: -40.5}
+        - {x: 36.5, y: -40.5}
+        - {x: 40.5, y: -30.5}
+        - {x: 40.5, y: 19.5}
+        - {x: 38.5, y: 31.5}
+    - name: GuiShadersLight_36
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 118
+        width: 61
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.5, y: 37.5}
+        - {x: -30.5, y: 9.5}
+        - {x: -30.5, y: -37.5}
+        - {x: 30.5, y: -37.5}
+        - {x: 30.5, y: 9.5}
+        - {x: 2.5, y: 37.5}
+    - name: GuiShadersLight_37
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 190
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_38
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 150
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 40}
+        - {x: -30, y: 39}
+        - {x: -40, y: 26}
+        - {x: -40, y: -21}
+        - {x: -38, y: -30}
+        - {x: -30, y: -40}
+        - {x: 26, y: -40}
+        - {x: 40, y: -34}
+        - {x: 40, y: 23}
+        - {x: 23, y: 40}
+    - name: GuiShadersLight_39
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 180
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_40
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 23
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_41
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 38
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 24}
+        - {x: -25, y: -24}
+        - {x: 25, y: -24}
+        - {x: 25, y: 24}
+    - name: GuiShadersLight_42
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 23
+        width: 167
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -59.5, y: 80}
+        - {x: -83.5, y: 44}
+        - {x: -83.5, y: -27}
+        - {x: -82.5, y: -33}
+        - {x: -63.5, y: -80}
+        - {x: 57.5, y: -80}
+        - {x: 83.5, y: -68}
+        - {x: 83.5, y: 62}
+        - {x: 40.5, y: 80}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

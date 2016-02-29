@@ -1,0 +1,1011 @@
+fileFormatVersion: 2
+guid: 5d09e3d266991c24b8ad051c7895756b
+timeCreated: 1454777294
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GuiShaders_0
+    21300002: GuiShaders_1
+    21300004: GuiShaders_2
+    21300006: GuiShaders_3
+    21300008: GuiShaders_4
+    21300010: GuiShaders_5
+    21300012: GuiShaders_6
+    21300014: GuiShaders_7
+    21300016: GuiShaders_8
+    21300018: GuiShaders_9
+    21300020: GuiShaders_10
+    21300022: GuiShaders_11
+    21300024: GuiShaders_12
+    21300026: GuiShaders_13
+    21300028: GuiShaders_14
+    21300030: GuiShaders_15
+    21300032: GuiShaders_16
+    21300034: GuiShaders_17
+    21300036: GuiShaders_18
+    21300038: GuiShaders_19
+    21300040: GuiShaders_20
+    21300042: GuiShaders_21
+    21300044: GuiShaders_22
+    21300046: GuiShaders_23
+    21300048: GuiShaders_24
+    21300050: GuiShaders_25
+    21300052: GuiShaders_26
+    21300054: GuiShaders_27
+    21300056: GuiShaders_28
+    21300058: GuiShaders_29
+    21300060: GuiShaders_30
+    21300062: GuiShaders_31
+    21300064: GuiShaders_32
+    21300066: GuiShaders_33
+    21300068: GuiShaders_34
+    21300070: GuiShaders_35
+    21300072: GuiShaders_36
+    21300074: GuiShaders_37
+    21300076: GuiShaders_38
+    21300078: GuiShaders_39
+    21300080: GuiShaders_40
+    21300082: GuiShaders_41
+    21300084: GuiShaders_42
+    21300086: GuiShaders_43
+    21300088: GuiShaders_44
+    21300090: GuiShaders_45
+    21300092: GuiShaders_46
+    21300094: GuiShaders_47
+    21300096: GuiShaders_48
+    21300098: GuiShaders_49
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 8192
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: GuiShaders_0
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 581
+        width: 97
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -48.5, y: 48.5}
+        - {x: -48.5, y: -29.5}
+        - {x: -34.5, y: -48.5}
+        - {x: 41.5, y: -48.5}
+        - {x: 48.5, y: -27.5}
+        - {x: 48.5, y: 48.5}
+    - name: GuiShaders_1
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 582
+        width: 97
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -48.5, y: 48}
+        - {x: -48.5, y: -48}
+        - {x: 48.5, y: -48}
+        - {x: 48.5, y: 48}
+    - name: GuiShaders_2
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 544
+        width: 61
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30.5, y: 38}
+        - {x: -30.5, y: -10}
+        - {x: -2.5, y: -38}
+        - {x: 2.5, y: -38}
+        - {x: 30.5, y: -10}
+        - {x: 30.5, y: 38}
+    - name: GuiShaders_3
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 565
+        width: 125
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -59.5, y: 63.5}
+        - {x: -62.5, y: 61.5}
+        - {x: -62.5, y: -45.5}
+        - {x: -56.5, y: -63.5}
+        - {x: 29.5, y: -63.5}
+        - {x: 62.5, y: -42.5}
+        - {x: 62.5, y: 48.5}
+        - {x: 29.5, y: 63.5}
+    - name: GuiShaders_4
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 380
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53, y: 80}
+        - {x: -80, y: 56}
+        - {x: -80, y: -36}
+        - {x: -73, y: -64}
+        - {x: -61, y: -80}
+        - {x: 56, y: -80}
+        - {x: 80, y: -73}
+        - {x: 80, y: 62}
+        - {x: 38, y: 80}
+    - name: GuiShaders_5
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 380
+        width: 161
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -80.5, y: 80}
+        - {x: -80.5, y: -80}
+        - {x: 80.5, y: -80}
+        - {x: 80.5, y: 80}
+    - name: GuiShaders_6
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 380
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -76, y: 80}
+        - {x: -80, y: 76}
+        - {x: -80, y: -36}
+        - {x: -60, y: -80}
+        - {x: 37, y: -80}
+        - {x: 80, y: -37}
+        - {x: 80, y: 60}
+        - {x: 34, y: 80}
+    - name: GuiShaders_7
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 468
+        width: 76
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38, y: 31}
+        - {x: -38, y: -31}
+        - {x: 9, y: -31}
+        - {x: 38, y: -2}
+        - {x: 38, y: 3}
+        - {x: 10, y: 31}
+    - name: GuiShaders_8
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 468
+        width: 75
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 31}
+        - {x: -37.5, y: 8}
+        - {x: -37.5, y: -20}
+        - {x: -10.5, y: -31}
+        - {x: 37.5, y: -31}
+        - {x: 37.5, y: 31}
+    - name: GuiShaders_9
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 380
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53, y: 80}
+        - {x: -80, y: 56}
+        - {x: -80, y: -36}
+        - {x: -73, y: -64}
+        - {x: -61, y: -80}
+        - {x: 56, y: -80}
+        - {x: 80, y: -73}
+        - {x: 80, y: 62}
+        - {x: 38, y: 80}
+    - name: GuiShaders_10
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 380
+        width: 61
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.5, y: 37.5}
+        - {x: -30.5, y: 9.5}
+        - {x: -30.5, y: -37.5}
+        - {x: 30.5, y: -37.5}
+        - {x: 30.5, y: 9.5}
+        - {x: 2.5, y: 37.5}
+    - name: GuiShaders_11
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 312
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_12
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 312
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_13
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 312
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_14
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 312
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_15
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 312
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_16
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 312
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_17
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 280
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_18
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 280
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_19
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 280
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_20
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 280
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_21
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 280
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_22
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 280
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_23
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 252
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_24
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 252
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_25
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 252
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_26
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 252
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_27
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 252
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_28
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 252
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_29
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 190
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_30
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 190
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_31
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 190
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_32
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 190
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_33
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 190
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_34
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 190
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_35
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_36
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_37
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_38
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_39
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_40
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 24}
+        - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: 24}
+    - name: GuiShaders_41
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 102
+        width: 108
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -54, y: 24}
+        - {x: -54, y: -24}
+        - {x: 54, y: -24}
+        - {x: 54, y: 24}
+    - name: GuiShaders_42
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 102
+        width: 108
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -54, y: 24}
+        - {x: -54, y: -24}
+        - {x: 54, y: -24}
+        - {x: 54, y: 24}
+    - name: GuiShaders_43
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 102
+        width: 108
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -54, y: 24}
+        - {x: -54, y: -24}
+        - {x: 54, y: -24}
+        - {x: 54, y: 24}
+    - name: GuiShaders_44
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 100
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_45
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 100
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_46
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 100
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_47
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 100
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_48
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 100
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    - name: GuiShaders_49
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 100
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 40}
+        - {x: -20, y: 40}
+        - {x: -38, y: 28}
+        - {x: -40, y: 19}
+        - {x: -40, y: -22}
+        - {x: -28, y: -38}
+        - {x: -25, y: -40}
+        - {x: 32, y: -40}
+        - {x: 40, y: -26}
+        - {x: 40, y: 33}
+        - {x: 29, y: 39}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

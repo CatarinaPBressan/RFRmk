@@ -16,7 +16,7 @@ public class ShootingBehaviour : MonoBehaviour
 
     private DateTime LastShotTime;
     private bool IsCooledDown = true;
-    private int CurrentAmmoCount;
+    public int CurrentAmmoCount;
 
     void Start()
     {

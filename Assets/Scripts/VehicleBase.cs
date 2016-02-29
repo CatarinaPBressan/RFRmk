@@ -5,6 +5,11 @@ using UnityEngine.UI;
 public class VehicleBase : MonoBehaviour {
 
     private Image FuelBar;
+    private Image HealthBar;
+    private Image MunitionBar;
+    private HealthCounter HealthCnt;
+    private ShootingBehaviour ShootingBhv;
+
     protected float CurrentFuelUnits;
     public int MaxFuelUnits = 100;
 
@@ -13,11 +18,14 @@ public class VehicleBase : MonoBehaviour {
         CurrentFuelUnits = MaxFuelUnits;
 
 
-        if (transform.Find("FuelNivel/FuelBar") != null)
-        {
-        
-            FuelBar = transform.Find("FuelNivel/FuelBar").GetComponent<Image>();
-        }
+        FuelBar = transform.Find("Stats/FuelBar").GetComponent<Image>();  
+        HealthBar = transform.Find("Stats/LifeBar").GetComponent<Image>();
+        MunitionBar = transform.Find("Stats/MunitionBar").GetComponent<Image>();
+
+        HealthCnt = GetComponent<HealthCounter>();
+        ShootingBhv = GetComponent<ShootingBehaviour>();
+
+
     }
 
 
@@ -32,6 +40,9 @@ public class VehicleBase : MonoBehaviour {
     {
 
         FuelBar.fillAmount = CurrentFuelUnits / 100;
+        HealthBar.fillAmount = HealthCnt.CurrentHealth / HealthCnt.InitialHealth;
+        MunitionBar.fillAmount = (float)ShootingBhv.CurrentAmmoCount / (float)ShootingBhv.MaxAmmoSize;
+
 
     }
 

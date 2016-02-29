@@ -3,8 +3,8 @@ using System.Collections;
 
 public class HealthCounter : MonoBehaviour 
 {
-    public int InitialHealth = 100;
-    public int CurrentHealth
+    public float InitialHealth = 100;
+    public float CurrentHealth
     {
         get;
         private set;
